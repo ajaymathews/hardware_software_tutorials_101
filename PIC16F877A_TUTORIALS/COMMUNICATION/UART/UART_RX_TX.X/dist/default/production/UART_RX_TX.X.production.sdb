@@ -1,0 +1,86 @@
+[p LITE_MODE AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 6 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"12 C:\Users\AJAY\Documents\PROGRAMS\PIC\PIC_16\MPLABX\UART\UART_RX_TX.X\newmain.c
+[v _uart_init uart_init `(v  1 e 1 0 ]
+"19
+[v _receive receive `(uc  1 e 1 0 ]
+"26
+[v _transmit transmit `(v  1 e 1 0 ]
+"32
+[v _str_transmit str_transmit `(v  1 e 1 0 ]
+"41
+[v _str_receive str_receive `(v  1 e 1 0 ]
+"59
+[v _main main `(v  1 e 1 0 ]
+"964 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f877a.h
+[v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
+"1059
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1066
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
+"1999
+[v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
+"2080
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2743
+[v _RCIF RCIF `VEb  1 e 0 @101 ]
+"2977
+[v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
+"2980
+[v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
+"3016
+[v _TRMT TRMT `VEb  1 e 0 @1217 ]
+"59 C:\Users\AJAY\Documents\PROGRAMS\PIC\PIC_16\MPLABX\UART\UART_RX_TX.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+{
+"69
+} 0
+"12
+[v _uart_init uart_init `(v  1 e 1 0 ]
+{
+"17
+} 0
+"41
+[v _str_receive str_receive `(v  1 e 1 0 ]
+{
+"43
+[v str_receive@c c `[7]uc  1 a 7 4 ]
+"44
+[v str_receive@i i `i  1 a 2 11 ]
+"56
+} 0
+"32
+[v _str_transmit str_transmit `(v  1 e 1 0 ]
+{
+[v str_transmit@p p `*.1uc  1 a 1 wreg ]
+[v str_transmit@p p `*.1uc  1 a 1 wreg ]
+[v str_transmit@p p `*.1uc  1 a 1 2 ]
+"39
+} 0
+"26
+[v _transmit transmit `(v  1 e 1 0 ]
+{
+[v transmit@b b `uc  1 a 1 wreg ]
+[v transmit@b b `uc  1 a 1 wreg ]
+"28
+[v transmit@b b `uc  1 a 1 0 ]
+"30
+} 0
+"19
+[v _receive receive `(uc  1 e 1 0 ]
+{
+"22
+[v receive@b b `uc  1 a 1 1 ]
+"24
+} 0
