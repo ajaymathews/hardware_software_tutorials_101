@@ -1,0 +1,49 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 6 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"39
+[v _memcpyee memcpyee `(v  1 e 1 0 ]
+"14 C:\Users\AJAY\Documents\MPLABX\PIC_16F\TIMER\NON_BLOCKING\TIMER1_INT.X\newmain.c
+[v _timer_isr timer_isr `II(v  1 e 1 0 ]
+"26
+[v _main main `(v  1 e 1 0 ]
+"338 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f877a.h
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"639
+[v _TMR1L TMR1L `VEuc  1 e 1 @14 ]
+"646
+[v _TMR1H TMR1H `VEuc  1 e 1 @15 ]
+"653
+[v _T1CON T1CON `VEuc  1 e 1 @16 ]
+"1497
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"2501
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"2541
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"2713
+[v _TMR1IE TMR1IE `VEb  1 e 0 @1120 ]
+"2715
+[v _TMR1IF TMR1IF `VEb  1 e 0 @96 ]
+"2717
+[v _TMR1ON TMR1ON `VEb  1 e 0 @128 ]
+"10 C:\Users\AJAY\Documents\MPLABX\PIC_16F\TIMER\NON_BLOCKING\TIMER1_INT.X\newmain.c
+[v _value value `uc  1 e 1 0 ]
+"26
+[v _main main `(v  1 e 1 0 ]
+{
+"43
+} 0
+"14
+[v _timer_isr timer_isr `II(v  1 e 1 0 ]
+{
+"23
+} 0

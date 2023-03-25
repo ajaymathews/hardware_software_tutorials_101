@@ -1,0 +1,2 @@
+timer is nothing bit vounts as the clock omcreaments,wih eaxg clock pilse tumer vakue is incremented by one till it reaches,
+max valie and rests back to start.
