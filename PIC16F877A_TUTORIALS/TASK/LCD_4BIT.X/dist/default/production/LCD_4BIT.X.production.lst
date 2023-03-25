@@ -1,0 +1,870 @@
+
+
+Microchip Technology PIC LITE Macro Assembler V1.45 build -152302408 
+                                                                                               Tue Jan 07 09:32:04 2020
+
+Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
+     1                           	processor	16F877A
+     2                           	opt	pw 120
+     3                           	opt	lm
+     4                           	psect	idataCOMMON,global,class=CODE,delta=2
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	dataCOMMON,global,class=COMMON,space=1,delta=1
+     7                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2
+    12                           	psect	text4,local,class=CODE,merge=1,delta=2
+    13                           	psect	text5,local,class=CODE,merge=1,delta=2
+    14                           	dabs	1,0x7E,2
+    15  0000                     
+    16                           ; Version 1.45
+    17                           ; Generated 16/11/2017 GMT
+    18                           ; 
+    19                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    20                           ; All rights reserved.
+    21                           ; 
+    22                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    23                           ; 
+    24                           ; Redistribution and use in source and binary forms, with or without modification, are
+    25                           ; permitted provided that the following conditions are met:
+    26                           ; 
+    27                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    28                           ;        conditions and the following disclaimer.
+    29                           ; 
+    30                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    31                           ;        of conditions and the following disclaimer in the documentation and/or other
+    32                           ;        materials provided with the distribution.
+    33                           ; 
+    34                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    35                           ;        software without specific prior written permission.
+    36                           ; 
+    37                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    38                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    39                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    40                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    41                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    42                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    43                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    44                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    45                           ; 
+    46                           ; 
+    47                           ; Code-generator required, PIC16F877A Definitions
+    48                           ; 
+    49                           ; SFR Addresses
+    50  0000                     	;# 
+    51  0001                     	;# 
+    52  0002                     	;# 
+    53  0003                     	;# 
+    54  0004                     	;# 
+    55  0005                     	;# 
+    56  0006                     	;# 
+    57  0007                     	;# 
+    58  0008                     	;# 
+    59  0009                     	;# 
+    60  000A                     	;# 
+    61  000B                     	;# 
+    62  000C                     	;# 
+    63  000D                     	;# 
+    64  000E                     	;# 
+    65  000E                     	;# 
+    66  000F                     	;# 
+    67  0010                     	;# 
+    68  0011                     	;# 
+    69  0012                     	;# 
+    70  0013                     	;# 
+    71  0014                     	;# 
+    72  0015                     	;# 
+    73  0015                     	;# 
+    74  0016                     	;# 
+    75  0017                     	;# 
+    76  0018                     	;# 
+    77  0019                     	;# 
+    78  001A                     	;# 
+    79  001B                     	;# 
+    80  001B                     	;# 
+    81  001C                     	;# 
+    82  001D                     	;# 
+    83  001E                     	;# 
+    84  001F                     	;# 
+    85  0081                     	;# 
+    86  0085                     	;# 
+    87  0086                     	;# 
+    88  0087                     	;# 
+    89  0088                     	;# 
+    90  0089                     	;# 
+    91  008C                     	;# 
+    92  008D                     	;# 
+    93  008E                     	;# 
+    94  0091                     	;# 
+    95  0092                     	;# 
+    96  0093                     	;# 
+    97  0094                     	;# 
+    98  0098                     	;# 
+    99  0099                     	;# 
+   100  009C                     	;# 
+   101  009D                     	;# 
+   102  009E                     	;# 
+   103  009F                     	;# 
+   104  010C                     	;# 
+   105  010D                     	;# 
+   106  010E                     	;# 
+   107  010F                     	;# 
+   108  018C                     	;# 
+   109  018D                     	;# 
+   110                           
+   111                           	psect	idataCOMMON
+   112  0722                     __pidataCOMMON:	
+   113                           
+   114                           ;initializer for _value
+   115  0722  3430               	retlw	48
+   116  0723  3430               	retlw	48
+   117  0019                     _TXREG	set	25
+   118  001A                     _RCREG	set	26
+   119  0018                     _RCSTA	set	24
+   120  0006                     _PORTB	set	6
+   121  0065                     _RCIF	set	101
+   122  0032                     _RB2	set	50
+   123  0030                     _RB0	set	48
+   124  0086                     _TRISB	set	134
+   125  0099                     _SPBRG	set	153
+   126  0098                     _TXSTA	set	152
+   127  043F                     _TRISC7	set	1087
+   128  043E                     _TRISC6	set	1086
+   129  04C1                     _TRMT	set	1217
+   130                           
+   131                           	psect	cinit
+   132  07F2                     start_initialization:	
+   133                           ; #config settings
+   134                           
+   135  07F2                     __initialization:	
+   136                           
+   137                           ; Initialize objects allocated to COMMON
+   138  07F2  120A  118A  2722  120A  118A  	fcall	__pidataCOMMON	;fetch initializer
+   139  07F7  00F5               	movwf	__pdataCOMMON& (0+127)
+   140  07F8  120A  118A  2723   	fcall	__pidataCOMMON+1	;fetch initializer
+   141  07FB  00F6               	movwf	(__pdataCOMMON+1)& (0+127)
+   142  07FC                     end_of_initialization:	
+   143                           ;End of C runtime variable initialization code
+   144                           
+   145  07FC                     __end_of__initialization:	
+   146  07FC  0183               	clrf	3
+   147  07FD  120A  118A  2F44   	ljmp	_main	;jump to C main() function
+   148                           
+   149                           	psect	dataCOMMON
+   150  0075                     __pdataCOMMON:	
+   151  0075                     _value:	
+   152  0075                     	ds	2
+   153                           
+   154                           	psect	cstackCOMMON
+   155  0070                     __pcstackCOMMON:	
+   156  0070                     ?_cmd_4bit:	
+   157  0070                     ?_lcd_init:	
+   158                           ; 1 bytes @ 0x0
+   159                           
+   160  0070                     ?_data_4bit:	
+   161                           ; 1 bytes @ 0x0
+   162                           
+   163  0070                     ??_data_4bit:	
+   164                           ; 1 bytes @ 0x0
+   165                           
+   166  0070                     ?_send_str:	
+   167                           ; 1 bytes @ 0x0
+   168                           
+   169  0070                     ?_uart_init:	
+   170                           ; 1 bytes @ 0x0
+   171                           
+   172  0070                     ??_uart_init:	
+   173                           ; 1 bytes @ 0x0
+   174                           
+   175  0070                     ?_main:	
+   176                           ; 1 bytes @ 0x0
+   177                           
+   178  0070                     cmd_4bit@x:	
+   179                           ; 1 bytes @ 0x0
+   180                           
+   181                           
+   182                           ; 2 bytes @ 0x0
+   183  0070                     	ds	2
+   184  0072                     ??_cmd_4bit:	
+   185  0072                     data_4bit@y:	
+   186                           ; 1 bytes @ 0x2
+   187                           
+   188                           
+   189                           ; 1 bytes @ 0x2
+   190  0072                     	ds	1
+   191  0073                     ??_send_str:	
+   192                           
+   193                           ; 1 bytes @ 0x3
+   194  0073                     	ds	1
+   195  0074                     ??_lcd_init:	
+   196  0074                     send_str@p:	
+   197                           ; 1 bytes @ 0x4
+   198                           
+   199                           
+   200                           ; 1 bytes @ 0x4
+   201  0074                     	ds	1
+   202  0075                     ??_main:	
+   203                           
+   204                           	psect	maintext
+   205  0744                     __pmaintext:	
+   206                           ; 1 bytes @ 0x5
+   207 ;;
+   208 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   209 ;;
+   210 ;; *************** function _main *****************
+   211 ;; Defined at:
+   212 ;;		line 121 in file "newmain.c"
+   213 ;; Parameters:    Size  Location     Type
+   214 ;;		None
+   215 ;; Auto vars:     Size  Location     Type
+   216 ;;		None
+   217 ;; Return value:  Size  Location     Type
+   218 ;;                  1    wreg      void 
+   219 ;; Registers used:
+   220 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   221 ;; Tracked objects:
+   222 ;;		On entry : B00/0
+   223 ;;		On exit  : 0/0
+   224 ;;		Unchanged: 0/0
+   225 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   226 ;;      Params:         0       0       0       0       0
+   227 ;;      Locals:         0       0       0       0       0
+   228 ;;      Temps:          0       0       0       0       0
+   229 ;;      Totals:         0       0       0       0       0
+   230 ;;Total ram usage:        0 bytes
+   231 ;; Hardware stack levels required when called:    2
+   232 ;; This function calls:
+   233 ;;		_lcd_init
+   234 ;;		_send_str
+   235 ;;		_uart_init
+   236 ;; This function is called by:
+   237 ;;		Startup code after reset
+   238 ;; This function uses a non-reentrant model
+   239 ;;
+   240                           
+   241                           
+   242                           ;psect for function _main
+   243  0744                     _main:	
+   244                           
+   245                           ;newmain.c: 123: TRISB=0x00;
+   246                           
+   247                           ;incstack = 0
+   248                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   249  0744  1683               	bsf	3,5	;RP0=1, select bank1
+   250  0745  1303               	bcf	3,6	;RP1=0, select bank1
+   251  0746  0186               	clrf	6	;volatile
+   252                           
+   253                           ;newmain.c: 124: TRISC6=0;
+   254  0747  1307               	bcf	7,6	;volatile
+   255                           
+   256                           ;newmain.c: 125: TRISC7=1;
+   257  0748  1787               	bsf	7,7	;volatile
+   258                           
+   259                           ;newmain.c: 126: uart_init();
+   260  0749  120A  118A  2724  120A  118A  	fcall	_uart_init
+   261                           
+   262                           ;newmain.c: 127: lcd_init();
+   263  074E  120A  118A  275A  120A  118A  	fcall	_lcd_init
+   264                           
+   265                           ;newmain.c: 135: send_str(value);
+   266  0753  3075               	movlw	(low (_value| 0))& (0+255)
+   267  0754  120A  118A  2731  120A  118A  	fcall	_send_str
+   268  0759                     l77:	
+   269                           ;newmain.c: 136: while(1);
+   270                           
+   271  0759  2F59               	goto	l77
+   272  075A                     __end_of_main:	
+   273                           
+   274                           	psect	text1
+   275  0724                     __ptext1:	
+   276 ;; *************** function _uart_init *****************
+   277 ;; Defined at:
+   278 ;;		line 77 in file "newmain.c"
+   279 ;; Parameters:    Size  Location     Type
+   280 ;;		None
+   281 ;; Auto vars:     Size  Location     Type
+   282 ;;		None
+   283 ;; Return value:  Size  Location     Type
+   284 ;;                  1    wreg      void 
+   285 ;; Registers used:
+   286 ;;		wreg
+   287 ;; Tracked objects:
+   288 ;;		On entry : 0/0
+   289 ;;		On exit  : 0/0
+   290 ;;		Unchanged: 0/0
+   291 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   292 ;;      Params:         0       0       0       0       0
+   293 ;;      Locals:         0       0       0       0       0
+   294 ;;      Temps:          0       0       0       0       0
+   295 ;;      Totals:         0       0       0       0       0
+   296 ;;Total ram usage:        0 bytes
+   297 ;; Hardware stack levels used:    1
+   298 ;; This function calls:
+   299 ;;		Nothing
+   300 ;; This function is called by:
+   301 ;;		_main
+   302 ;; This function uses a non-reentrant model
+   303 ;;
+   304                           
+   305                           
+   306                           ;psect for function _uart_init
+   307  0724                     _uart_init:	
+   308                           
+   309                           ;newmain.c: 79: TXSTA=0x24;
+   310                           
+   311                           ;incstack = 0
+   312                           ; Regs used in _uart_init: [wreg]
+   313  0724  3024               	movlw	36
+   314  0725  1683               	bsf	3,5	;RP0=1, select bank1
+   315  0726  1303               	bcf	3,6	;RP1=0, select bank1
+   316  0727  0098               	movwf	24	;volatile
+   317                           
+   318                           ;newmain.c: 80: RCSTA=0x90;
+   319  0728  3090               	movlw	144
+   320  0729  1283               	bcf	3,5	;RP0=0, select bank0
+   321  072A  1303               	bcf	3,6	;RP1=0, select bank0
+   322  072B  0098               	movwf	24	;volatile
+   323                           
+   324                           ;newmain.c: 81: SPBRG=103;
+   325  072C  3067               	movlw	103
+   326  072D  1683               	bsf	3,5	;RP0=1, select bank1
+   327  072E  1303               	bcf	3,6	;RP1=0, select bank1
+   328  072F  0099               	movwf	25	;volatile
+   329  0730  0008               	return
+   330  0731                     __end_of_uart_init:	
+   331                           
+   332                           	psect	text2
+   333  0731                     __ptext2:	
+   334 ;; *************** function _send_str *****************
+   335 ;; Defined at:
+   336 ;;		line 69 in file "newmain.c"
+   337 ;; Parameters:    Size  Location     Type
+   338 ;;  p               1    wreg     PTR unsigned char 
+   339 ;;		 -> value(2), 
+   340 ;; Auto vars:     Size  Location     Type
+   341 ;;  p               1    4[COMMON] PTR unsigned char 
+   342 ;;		 -> value(2), 
+   343 ;; Return value:  Size  Location     Type
+   344 ;;                  1    wreg      void 
+   345 ;; Registers used:
+   346 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   347 ;; Tracked objects:
+   348 ;;		On entry : 0/0
+   349 ;;		On exit  : 0/0
+   350 ;;		Unchanged: 0/0
+   351 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   352 ;;      Params:         0       0       0       0       0
+   353 ;;      Locals:         1       0       0       0       0
+   354 ;;      Temps:          1       0       0       0       0
+   355 ;;      Totals:         2       0       0       0       0
+   356 ;;Total ram usage:        2 bytes
+   357 ;; Hardware stack levels used:    1
+   358 ;; Hardware stack levels required when called:    1
+   359 ;; This function calls:
+   360 ;;		_data_4bit
+   361 ;; This function is called by:
+   362 ;;		_main
+   363 ;; This function uses a non-reentrant model
+   364 ;;
+   365                           
+   366                           
+   367                           ;psect for function _send_str
+   368  0731                     _send_str:	
+   369                           
+   370                           ;incstack = 0
+   371                           ; Regs used in _send_str: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   372                           ;send_str@p stored from wreg
+   373  0731  00F4               	movwf	send_str@p
+   374  0732                     l592:	
+   375                           ;newmain.c: 71: while(*p!='\0')
+   376                           
+   377  0732  0874               	movf	send_str@p,w
+   378  0733  0084               	movwf	4
+   379  0734  0800               	movf	0,w
+   380  0735  1903               	btfsc	3,2
+   381  0736  0008               	return
+   382                           
+   383                           ;newmain.c: 72: {
+   384                           ;newmain.c: 73: data_4bit(*p);
+   385  0737  0874               	movf	send_str@p,w
+   386  0738  0084               	movwf	4
+   387  0739  0800               	movf	0,w
+   388  073A  120A  118A  27B7  120A  118A  	fcall	_data_4bit
+   389                           
+   390                           ;newmain.c: 74: p++;
+   391  073F  3001               	movlw	1
+   392  0740  00F3               	movwf	??_send_str
+   393  0741  0873               	movf	??_send_str,w
+   394  0742  07F4               	addwf	send_str@p,f
+   395  0743  2F32               	goto	l592
+   396  0744                     __end_of_send_str:	
+   397                           
+   398                           	psect	text3
+   399  07B7                     __ptext3:	
+   400 ;; *************** function _data_4bit *****************
+   401 ;; Defined at:
+   402 ;;		line 49 in file "newmain.c"
+   403 ;; Parameters:    Size  Location     Type
+   404 ;;  y               1    wreg     unsigned char 
+   405 ;; Auto vars:     Size  Location     Type
+   406 ;;  y               1    2[COMMON] unsigned char 
+   407 ;; Return value:  Size  Location     Type
+   408 ;;                  1    wreg      void 
+   409 ;; Registers used:
+   410 ;;		wreg, status,2, status,0
+   411 ;; Tracked objects:
+   412 ;;		On entry : 0/0
+   413 ;;		On exit  : 0/0
+   414 ;;		Unchanged: 0/0
+   415 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   416 ;;      Params:         0       0       0       0       0
+   417 ;;      Locals:         1       0       0       0       0
+   418 ;;      Temps:          2       0       0       0       0
+   419 ;;      Totals:         3       0       0       0       0
+   420 ;;Total ram usage:        3 bytes
+   421 ;; Hardware stack levels used:    1
+   422 ;; This function calls:
+   423 ;;		Nothing
+   424 ;; This function is called by:
+   425 ;;		_send_str
+   426 ;; This function uses a non-reentrant model
+   427 ;;
+   428                           
+   429                           
+   430                           ;psect for function _data_4bit
+   431  07B7                     _data_4bit:	
+   432                           
+   433                           ;incstack = 0
+   434                           ; Regs used in _data_4bit: [wreg+status,2+status,0]
+   435                           ;data_4bit@y stored from wreg
+   436  07B7  00F2               	movwf	data_4bit@y
+   437                           
+   438                           ;newmain.c: 52: PORTB& = 0x0F;
+   439  07B8  300F               	movlw	15
+   440  07B9  00F0               	movwf	??_data_4bit
+   441  07BA  0870               	movf	??_data_4bit,w
+   442  07BB  1283               	bcf	3,5	;RP0=0, select bank0
+   443  07BC  1303               	bcf	3,6	;RP1=0, select bank0
+   444  07BD  0586               	andwf	6,f	;volatile
+   445                           
+   446                           ;newmain.c: 53: RB0=1;
+   447  07BE  1406               	bsf	6,0	;volatile
+   448                           
+   449                           ;newmain.c: 54: RB2=0;
+   450  07BF  1106               	bcf	6,2	;volatile
+   451                           
+   452                           ;newmain.c: 55: PORTB |= (y & 0xF0);
+   453  07C0  0872               	movf	data_4bit@y,w
+   454  07C1  39F0               	andlw	240
+   455  07C2  00F0               	movwf	??_data_4bit
+   456  07C3  0870               	movf	??_data_4bit,w
+   457  07C4  0486               	iorwf	6,f	;volatile
+   458                           
+   459                           ;newmain.c: 56: RB2=1;
+   460  07C5  1506               	bsf	6,2	;volatile
+   461                           
+   462                           ;newmain.c: 57: _delay((unsigned long)((10)*(16000000L/4000.0)));
+   463  07C6  3034               	movlw	52
+   464  07C7  00F1               	movwf	??_data_4bit+1
+   465  07C8  30F1               	movlw	241
+   466  07C9  00F0               	movwf	??_data_4bit
+   467  07CA                     u117:	
+   468  07CA  0BF0               	decfsz	??_data_4bit,f
+   469  07CB  2FCA               	goto	u117
+   470  07CC  0BF1               	decfsz	??_data_4bit+1,f
+   471  07CD  2FCA               	goto	u117
+   472  07CE  2FCF               	nop2
+   473                           
+   474                           ;newmain.c: 58: RB2=0;
+   475  07CF  1283               	bcf	3,5	;RP0=0, select bank0
+   476  07D0  1303               	bcf	3,6	;RP1=0, select bank0
+   477  07D1  1106               	bcf	6,2	;volatile
+   478                           
+   479                           ;newmain.c: 62: PORTB& = 0x0F;
+   480  07D2  300F               	movlw	15
+   481  07D3  00F0               	movwf	??_data_4bit
+   482  07D4  0870               	movf	??_data_4bit,w
+   483  07D5  0586               	andwf	6,f	;volatile
+   484                           
+   485                           ;newmain.c: 63: PORTB |= ((y<<4) & 0xF0);
+   486  07D6  0872               	movf	data_4bit@y,w
+   487  07D7  00F0               	movwf	??_data_4bit
+   488  07D8  3003               	movlw	3
+   489  07D9                     u25:	
+   490  07D9  1003               	clrc
+   491  07DA  0DF0               	rlf	??_data_4bit,f
+   492  07DB  3EFF               	addlw	-1
+   493  07DC  1D03               	skipz
+   494  07DD  2FD9               	goto	u25
+   495  07DE  1003               	clrc
+   496  07DF  0D70               	rlf	??_data_4bit,w
+   497  07E0  39F0               	andlw	240
+   498  07E1  00F1               	movwf	??_data_4bit+1
+   499  07E2  0871               	movf	??_data_4bit+1,w
+   500  07E3  0486               	iorwf	6,f	;volatile
+   501                           
+   502                           ;newmain.c: 64: RB2=1;
+   503  07E4  1506               	bsf	6,2	;volatile
+   504                           
+   505                           ;newmain.c: 65: _delay((unsigned long)((10)*(16000000L/4000.0)));
+   506  07E5  3034               	movlw	52
+   507  07E6  00F1               	movwf	??_data_4bit+1
+   508  07E7  30F1               	movlw	241
+   509  07E8  00F0               	movwf	??_data_4bit
+   510  07E9                     u127:	
+   511  07E9  0BF0               	decfsz	??_data_4bit,f
+   512  07EA  2FE9               	goto	u127
+   513  07EB  0BF1               	decfsz	??_data_4bit+1,f
+   514  07EC  2FE9               	goto	u127
+   515  07ED  2FEE               	nop2
+   516                           
+   517                           ;newmain.c: 66: RB2=0;
+   518  07EE  1283               	bcf	3,5	;RP0=0, select bank0
+   519  07EF  1303               	bcf	3,6	;RP1=0, select bank0
+   520  07F0  1106               	bcf	6,2	;volatile
+   521  07F1  0008               	return
+   522  07F2                     __end_of_data_4bit:	
+   523                           
+   524                           	psect	text4
+   525  075A                     __ptext4:	
+   526 ;; *************** function _lcd_init *****************
+   527 ;; Defined at:
+   528 ;;		line 37 in file "newmain.c"
+   529 ;; Parameters:    Size  Location     Type
+   530 ;;		None
+   531 ;; Auto vars:     Size  Location     Type
+   532 ;;		None
+   533 ;; Return value:  Size  Location     Type
+   534 ;;                  1    wreg      void 
+   535 ;; Registers used:
+   536 ;;		wreg, status,2, status,0, pclath, cstack
+   537 ;; Tracked objects:
+   538 ;;		On entry : 0/0
+   539 ;;		On exit  : 0/0
+   540 ;;		Unchanged: 0/0
+   541 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   542 ;;      Params:         0       0       0       0       0
+   543 ;;      Locals:         0       0       0       0       0
+   544 ;;      Temps:          0       0       0       0       0
+   545 ;;      Totals:         0       0       0       0       0
+   546 ;;Total ram usage:        0 bytes
+   547 ;; Hardware stack levels used:    1
+   548 ;; Hardware stack levels required when called:    1
+   549 ;; This function calls:
+   550 ;;		_cmd_4bit
+   551 ;; This function is called by:
+   552 ;;		_main
+   553 ;; This function uses a non-reentrant model
+   554 ;;
+   555                           
+   556                           
+   557                           ;psect for function _lcd_init
+   558  075A                     _lcd_init:	
+   559                           
+   560                           ;newmain.c: 41: cmd_4bit(0x02);
+   561                           
+   562                           ;incstack = 0
+   563                           ; Regs used in _lcd_init: [wreg+status,2+status,0+pclath+cstack]
+   564  075A  3002               	movlw	2
+   565  075B  00F0               	movwf	cmd_4bit@x
+   566  075C  3000               	movlw	0
+   567  075D  00F1               	movwf	cmd_4bit@x+1
+   568  075E  120A  118A  277D  120A  118A  	fcall	_cmd_4bit
+   569                           
+   570                           ;newmain.c: 42: cmd_4bit(0x01);
+   571  0763  3001               	movlw	1
+   572  0764  00F0               	movwf	cmd_4bit@x
+   573  0765  3000               	movlw	0
+   574  0766  00F1               	movwf	cmd_4bit@x+1
+   575  0767  120A  118A  277D  120A  118A  	fcall	_cmd_4bit
+   576                           
+   577                           ;newmain.c: 44: cmd_4bit(0x0c);
+   578  076C  300C               	movlw	12
+   579  076D  00F0               	movwf	cmd_4bit@x
+   580  076E  3000               	movlw	0
+   581  076F  00F1               	movwf	cmd_4bit@x+1
+   582  0770  120A  118A  277D  120A  118A  	fcall	_cmd_4bit
+   583                           
+   584                           ;newmain.c: 45: cmd_4bit(0x80);
+   585  0775  3080               	movlw	128
+   586  0776  00F0               	movwf	cmd_4bit@x
+   587  0777  3000               	movlw	0
+   588  0778  00F1               	movwf	cmd_4bit@x+1
+   589  0779  120A  118A  277D   	fcall	_cmd_4bit
+   590  077C  0008               	return
+   591  077D                     __end_of_lcd_init:	
+   592                           
+   593                           	psect	text5
+   594  077D                     __ptext5:	
+   595 ;; *************** function _cmd_4bit *****************
+   596 ;; Defined at:
+   597 ;;		line 17 in file "newmain.c"
+   598 ;; Parameters:    Size  Location     Type
+   599 ;;  x               2    0[COMMON] int 
+   600 ;; Auto vars:     Size  Location     Type
+   601 ;;		None
+   602 ;; Return value:  Size  Location     Type
+   603 ;;                  1    wreg      void 
+   604 ;; Registers used:
+   605 ;;		wreg, status,2, status,0
+   606 ;; Tracked objects:
+   607 ;;		On entry : 0/0
+   608 ;;		On exit  : 0/0
+   609 ;;		Unchanged: 0/0
+   610 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   611 ;;      Params:         2       0       0       0       0
+   612 ;;      Locals:         0       0       0       0       0
+   613 ;;      Temps:          2       0       0       0       0
+   614 ;;      Totals:         4       0       0       0       0
+   615 ;;Total ram usage:        4 bytes
+   616 ;; Hardware stack levels used:    1
+   617 ;; This function calls:
+   618 ;;		Nothing
+   619 ;; This function is called by:
+   620 ;;		_lcd_init
+   621 ;; This function uses a non-reentrant model
+   622 ;;
+   623                           
+   624                           
+   625                           ;psect for function _cmd_4bit
+   626  077D                     _cmd_4bit:	
+   627                           
+   628                           ;newmain.c: 19: PORTB& = 0x0F;
+   629                           
+   630                           ;incstack = 0
+   631                           ; Regs used in _cmd_4bit: [wreg+status,2+status,0]
+   632  077D  300F               	movlw	15
+   633  077E  00F2               	movwf	??_cmd_4bit
+   634  077F  0872               	movf	??_cmd_4bit,w
+   635  0780  1283               	bcf	3,5	;RP0=0, select bank0
+   636  0781  1303               	bcf	3,6	;RP1=0, select bank0
+   637  0782  0586               	andwf	6,f	;volatile
+   638                           
+   639                           ;newmain.c: 20: RB0=0;
+   640  0783  1006               	bcf	6,0	;volatile
+   641                           
+   642                           ;newmain.c: 21: RB2=0;
+   643  0784  1106               	bcf	6,2	;volatile
+   644                           
+   645                           ;newmain.c: 22: PORTB |= (x & 0xF0);
+   646  0785  0870               	movf	cmd_4bit@x,w
+   647  0786  39F0               	andlw	240
+   648  0787  00F2               	movwf	??_cmd_4bit
+   649  0788  0872               	movf	??_cmd_4bit,w
+   650  0789  0486               	iorwf	6,f	;volatile
+   651                           
+   652                           ;newmain.c: 23: RB2=1;
+   653  078A  1506               	bsf	6,2	;volatile
+   654                           
+   655                           ;newmain.c: 24: _delay((unsigned long)((10)*(16000000L/4000.0)));
+   656  078B  3034               	movlw	52
+   657  078C  00F3               	movwf	??_cmd_4bit+1
+   658  078D  30F1               	movlw	241
+   659  078E  00F2               	movwf	??_cmd_4bit
+   660  078F                     u137:	
+   661  078F  0BF2               	decfsz	??_cmd_4bit,f
+   662  0790  2F8F               	goto	u137
+   663  0791  0BF3               	decfsz	??_cmd_4bit+1,f
+   664  0792  2F8F               	goto	u137
+   665  0793  2F94               	nop2
+   666                           
+   667                           ;newmain.c: 25: RB2=0;
+   668  0794  1283               	bcf	3,5	;RP0=0, select bank0
+   669  0795  1303               	bcf	3,6	;RP1=0, select bank0
+   670  0796  1106               	bcf	6,2	;volatile
+   671                           
+   672                           ;newmain.c: 29: PORTB& = 0x0F;
+   673  0797  300F               	movlw	15
+   674  0798  00F2               	movwf	??_cmd_4bit
+   675  0799  0872               	movf	??_cmd_4bit,w
+   676  079A  0586               	andwf	6,f	;volatile
+   677                           
+   678                           ;newmain.c: 30: PORTB |= ((x<<4) & 0xF0);
+   679  079B  0870               	movf	cmd_4bit@x,w
+   680  079C  00F2               	movwf	??_cmd_4bit
+   681  079D  3003               	movlw	3
+   682  079E                     u105:	
+   683  079E  1003               	clrc
+   684  079F  0DF2               	rlf	??_cmd_4bit,f
+   685  07A0  3EFF               	addlw	-1
+   686  07A1  1D03               	skipz
+   687  07A2  2F9E               	goto	u105
+   688  07A3  1003               	clrc
+   689  07A4  0D72               	rlf	??_cmd_4bit,w
+   690  07A5  39F0               	andlw	240
+   691  07A6  00F3               	movwf	??_cmd_4bit+1
+   692  07A7  0873               	movf	??_cmd_4bit+1,w
+   693  07A8  0486               	iorwf	6,f	;volatile
+   694                           
+   695                           ;newmain.c: 31: RB2=1;
+   696  07A9  1506               	bsf	6,2	;volatile
+   697                           
+   698                           ;newmain.c: 32: _delay((unsigned long)((10)*(16000000L/4000.0)));
+   699  07AA  3034               	movlw	52
+   700  07AB  00F3               	movwf	??_cmd_4bit+1
+   701  07AC  30F1               	movlw	241
+   702  07AD  00F2               	movwf	??_cmd_4bit
+   703  07AE                     u147:	
+   704  07AE  0BF2               	decfsz	??_cmd_4bit,f
+   705  07AF  2FAE               	goto	u147
+   706  07B0  0BF3               	decfsz	??_cmd_4bit+1,f
+   707  07B1  2FAE               	goto	u147
+   708  07B2  2FB3               	nop2
+   709                           
+   710                           ;newmain.c: 33: RB2=0;
+   711  07B3  1283               	bcf	3,5	;RP0=0, select bank0
+   712  07B4  1303               	bcf	3,6	;RP1=0, select bank0
+   713  07B5  1106               	bcf	6,2	;volatile
+   714  07B6  0008               	return
+   715  07B7                     __end_of_cmd_4bit:	
+   716  007E                     btemp	set	126	;btemp
+   717  007E                     wtemp0	set	126
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        2
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      5       7
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    send_str@p	PTR unsigned char  size(1) Largest target is 2
+		 -> value(COMMON[2]), 
+
+
+Critical Paths under _main in COMMON
+
+    _main->_send_str
+    _send_str->_data_4bit
+    _lcd_init->_cmd_4bit
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0     340
+                           _lcd_init
+                           _send_str
+                          _uart_init
+ ---------------------------------------------------------------------------------
+ (1) _uart_init                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _send_str                                             2     2      0      84
+                                              3 COMMON     2     2      0
+                          _data_4bit
+ ---------------------------------------------------------------------------------
+ (2) _data_4bit                                            3     3      0      30
+                                              0 COMMON     3     3      0
+ ---------------------------------------------------------------------------------
+ (1) _lcd_init                                             0     0      0     256
+                           _cmd_4bit
+ ---------------------------------------------------------------------------------
+ (2) _cmd_4bit                                             4     2      2     256
+                                              0 COMMON     4     2      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _lcd_init
+     _cmd_4bit
+   _send_str
+     _data_4bit
+   _uart_init
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BANK3               60      0       0       9        0.0%
+BITBANK3            60      0       0       8        0.0%
+SFR3                 0      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+BANK2               60      0       0      11        0.0%
+BITBANK2            60      0       0      10        0.0%
+SFR2                 0      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK1            50      0       0       6        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               50      0       0       5        0.0%
+BITBANK0            50      0       0       4        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               E      5       7       1       50.0%
+BITCOMMON            E      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0       7      12        0.0%
+ABS                  0      0       7       3        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+EEDATA             100      0       0       0        0.0%
+
+
+Microchip Technology PIC Macro Assembler V1.45 build -152302408 
+Symbol Table                                                                                   Tue Jan 07 09:32:04 2020
+
+                     l77 0759                       u25 07D9                      l592 0732  
+                    _RB0 0030                      _RB2 0032                      u105 079E  
+                    u117 07CA                      u127 07E9                      u137 078F  
+                    u147 07AE                      fsr0 0004                      indf 0000  
+                   _RCIF 0065                     _TRMT 04C1                     _main 0744  
+                   btemp 007E                     start 0000                    ?_main 0070  
+                  _RCREG 001A                    _RCSTA 0018                    _SPBRG 0099  
+                  _PORTB 0006                    _TRISB 0086                    _TXREG 0019  
+                  _TXSTA 0098                    _value 0075                    status 0003  
+                  wtemp0 007E          __initialization 07F2             __end_of_main 075A  
+                 ??_main 0075         __end_of_cmd_4bit 07B7                   _TRISC6 043E  
+                 _TRISC7 043F         __end_of_lcd_init 077D         __end_of_send_str 0744  
+           __pdataCOMMON 0075  __end_of__initialization 07FC           __pcstackCOMMON 0070  
+     __size_of_data_4bit 003B               __pmaintext 0744                ?_cmd_4bit 0070  
+     __size_of_uart_init 000D        __end_of_data_4bit 07F2                ?_lcd_init 0070  
+             data_4bit@y 0072                ?_send_str 0070                  __ptext1 0724  
+                __ptext2 0731                  __ptext3 07B7                  __ptext4 075A  
+                __ptext5 077D               ??_cmd_4bit 0072               ??_lcd_init 0074  
+   end_of_initialization 07FC        __end_of_uart_init 0731               ??_send_str 0073  
+          __pidataCOMMON 0722      start_initialization 07F2                ___latbits 0002  
+      __size_of_cmd_4bit 003A        __size_of_lcd_init 0023                _data_4bit 07B7  
+      __size_of_send_str 0013                cmd_4bit@x 0070               ?_data_4bit 0070  
+              _uart_init 0724               ?_uart_init 0070                 _cmd_4bit 077D  
+               _lcd_init 075A                send_str@p 0074              ??_data_4bit 0070  
+          __size_of_main 0016                 _send_str 0731              ??_uart_init 0070  
