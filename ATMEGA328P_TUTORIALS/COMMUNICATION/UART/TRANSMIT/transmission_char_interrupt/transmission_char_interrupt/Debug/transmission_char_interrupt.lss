@@ -1,0 +1,189 @@
+
+transmission_char_interrupt.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  0000015c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000108  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  0000015c  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000018c  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000038  00000000  00000000  000001cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000798  00000000  00000000  00000204  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000006aa  00000000  00000000  0000099c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002c7  00000000  00000000  00001046  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000070  00000000  00000000  00001310  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000403  00000000  00000000  00001380  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000000e6  00000000  00000000  00001783  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000028  00000000  00000000  00001869  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   8:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+   c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  10:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  14:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  18:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  1c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  20:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  24:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  28:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  2c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  30:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  34:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  38:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  3c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  40:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  44:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  48:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  4c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  50:	0c 94 66 00 	jmp	0xcc	; 0xcc <__vector_20>
+  54:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  58:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  5c:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  60:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+  64:	0c 94 3e 00 	jmp	0x7c	; 0x7c <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+  74:	0e 94 53 00 	call	0xa6	; 0xa6 <main>
+  78:	0c 94 82 00 	jmp	0x104	; 0x104 <_exit>
+
+0000007c <__bad_interrupt>:
+  7c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000080 <transmit_set>:
+#define BAUD  9600
+#define NORMAL_BAUD  ((F_CPU/16/BAUD)-1) //for normal mode asynchronus operation
+
+void transmit_set()
+{
+	UBRR0=NORMAL_BAUD; //SETTING THE BAUD RATE REGISTERS
+  80:	83 e3       	ldi	r24, 0x33	; 51
+  82:	90 e0       	ldi	r25, 0x00	; 0
+  84:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7e00c5>
+  88:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7e00c4>
+	
+	//UBRR0H=(NORMAL_BAUD >> 8); //MORE SAFER WAY IS TO ASSIGN THE BAUD DATA IN BOTH L AND H REGISTER SEPERATELY
+	//UBRR0L=NORMAL_BAUD;
+	//UBRR0L=51;
+	UCSR0B=(1 << TXEN0);//enabling transmitter by overidinng normal port operation
+  8c:	88 e0       	ldi	r24, 0x08	; 8
+  8e:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7e00c1>
+	UCSR0C=((1 << UCSZ01)|(1 << UCSZ00));//8bit frame in reciver and transmitter use
+  92:	86 e0       	ldi	r24, 0x06	; 6
+  94:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7e00c2>
+  98:	08 95       	ret
+
+0000009a <transmit_interrupt_enable>:
+}
+void transmit_interrupt_enable()
+{
+	UCSR0B|=1<<TXCIE0;
+  9a:	e1 ec       	ldi	r30, 0xC1	; 193
+  9c:	f0 e0       	ldi	r31, 0x00	; 0
+  9e:	80 81       	ld	r24, Z
+  a0:	80 64       	ori	r24, 0x40	; 64
+  a2:	80 83       	st	Z, r24
+  a4:	08 95       	ret
+
+000000a6 <main>:
+}
+int main(void)
+{	
+    transmit_set();
+  a6:	0e 94 40 00 	call	0x80	; 0x80 <transmit_set>
+	sei();
+  aa:	78 94       	sei
+	transmit_interrupt_enable();
+  ac:	0e 94 4d 00 	call	0x9a	; 0x9a <transmit_interrupt_enable>
+    while(1) 
+    {	
+		_delay_ms(500);	//because when the udro gets a value, it immedetly calls the interrupt,
+						// as long as the data is in UDR0, it passes that data multiple times,
+						// without a delay, it only transmit data one by one not multiple
+		UDR0='p';
+  b0:	e6 ec       	ldi	r30, 0xC6	; 198
+  b2:	f0 e0       	ldi	r31, 0x00	; 0
+  b4:	80 e7       	ldi	r24, 0x70	; 112
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  b6:	2f e9       	ldi	r18, 0x9F	; 159
+  b8:	36 e8       	ldi	r19, 0x86	; 134
+  ba:	91 e0       	ldi	r25, 0x01	; 1
+  bc:	21 50       	subi	r18, 0x01	; 1
+  be:	30 40       	sbci	r19, 0x00	; 0
+  c0:	90 40       	sbci	r25, 0x00	; 0
+  c2:	e1 f7       	brne	.-8      	; 0xbc <main+0x16>
+  c4:	00 c0       	rjmp	.+0      	; 0xc6 <main+0x20>
+  c6:	00 00       	nop
+  c8:	80 83       	st	Z, r24
+  ca:	f5 cf       	rjmp	.-22     	; 0xb6 <main+0x10>
+
+000000cc <__vector_20>:
+    }
+}
+
+
+ISR(USART_TX_vect)
+{
+  cc:	1f 92       	push	r1
+  ce:	0f 92       	push	r0
+  d0:	0f b6       	in	r0, 0x3f	; 63
+  d2:	0f 92       	push	r0
+  d4:	11 24       	eor	r1, r1
+  d6:	2f 93       	push	r18
+  d8:	8f 93       	push	r24
+  da:	9f 93       	push	r25
+	UDR0='A';
+  dc:	81 e4       	ldi	r24, 0x41	; 65
+  de:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7e00c6>
+  e2:	2f e9       	ldi	r18, 0x9F	; 159
+  e4:	86 e8       	ldi	r24, 0x86	; 134
+  e6:	91 e0       	ldi	r25, 0x01	; 1
+  e8:	21 50       	subi	r18, 0x01	; 1
+  ea:	80 40       	sbci	r24, 0x00	; 0
+  ec:	90 40       	sbci	r25, 0x00	; 0
+  ee:	e1 f7       	brne	.-8      	; 0xe8 <__vector_20+0x1c>
+  f0:	00 c0       	rjmp	.+0      	; 0xf2 <__vector_20+0x26>
+  f2:	00 00       	nop
+	_delay_ms(500);
+	//UCSR0A|=1<<TXC0;	//IF IN CASE NEED TO CLEAR THE TRANSMIT FLAG
+}
+  f4:	9f 91       	pop	r25
+  f6:	8f 91       	pop	r24
+  f8:	2f 91       	pop	r18
+  fa:	0f 90       	pop	r0
+  fc:	0f be       	out	0x3f, r0	; 63
+  fe:	0f 90       	pop	r0
+ 100:	1f 90       	pop	r1
+ 102:	18 95       	reti
+
+00000104 <_exit>:
+ 104:	f8 94       	cli
+
+00000106 <__stop_program>:
+ 106:	ff cf       	rjmp	.-2      	; 0x106 <__stop_program>
