@@ -70,7 +70,8 @@ int main()
 	
 	stack s1;
 	init(&s1);     //initializing each stack memeber with a -1 on the top
-	txtrev("C:\Users\AJAY\Documents\C_PGMS\TUTORIAL\DATA_STRUCTURES\STACK\source.txt","C:\Users\AJAY\Documents\C_PGMS\TUTORIAL\DATA_STRUCTURES\STACK\dest.txt",&s1);
+	// [AI]: Masked sensitive information.
+	txtrev("<personal_path>\\source.txt","<personal_path>\\dest.txt",&s1);
     return 0;	
 	
 }

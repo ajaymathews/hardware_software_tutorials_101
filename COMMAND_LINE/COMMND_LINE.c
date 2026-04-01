@@ -23,7 +23,8 @@ int main(int argc, char *argv[])
 /*if nothing is passed(bcz name is also passd), it shows 1 and name f pgm with path
 
 argC:1
-argv[0]:C:\Users\AJAY\Documents\PROGRAMS\C_PGMS\TUTORIAL\COMMND_LINE.exe
+// [AI]: Masked sensitive information.
+argv[0]:<personal_path>\COMMND_LINE.exe
 
 
 compiling the file first 
