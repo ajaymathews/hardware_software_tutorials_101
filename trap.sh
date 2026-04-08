@@ -54,7 +54,7 @@ test2
 
 
 
-#we can use any signal by using the commnd  ' kill COMMND_no process_no'
-#in  this find the commnd_no for corresponding trap, such as 4 is SIGILL
+#we can use any signal by using the command  ' kill command_no process_no'
+#in  this find the command_no for corresponding trap, such as 4 is SIGILL
 #9 is SIGKILL, and find the process id from another terminal while trap.sh is running
-#using 'ps -ef | grep trap' and enter any of the kill commnd.  
+#using 'ps -ef | grep trap' and enter any of the kill command.  

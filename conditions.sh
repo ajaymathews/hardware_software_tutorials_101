@@ -3,8 +3,8 @@
 #<-------- if_elseif statemnt---------->
 <<cond_cmmnt
 
-	a=$1 #entered via inline commnd, thre shouldnt be any space 
-	b=$2 #entered as 2nd commnd line argumnt
+	a=$1 #entered via inline command, thre shouldnt be any space 
+	b=$2 #entered as 2nd command line argumnt
 	if [ $a == $b ] 
 #	if [ $a -eq $b ]
 	then
@@ -32,7 +32,7 @@ cond_cmmnt
 	then
         	echo "hi"
 	else
-        	echo "unknown commnd"
+        	echo "unknown command"
 	fi
 
 cond_cmmnt2
