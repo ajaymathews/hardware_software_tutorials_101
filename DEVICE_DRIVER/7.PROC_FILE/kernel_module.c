@@ -233,7 +233,7 @@ static int __init driver_load_fun(void)
 /*proc file in /proc/ location is created using this */ 
 
 
-	printk(KERN_INFO "Driver is loaded into the kernal\n");
+	printk(KERN_INFO "Driver is loaded into the kernel\n");
 	return 0;
 
 
@@ -273,7 +273,7 @@ unregister_chrdev_region(maj_min_num,1);
 printk(KERN_INFO "Major/Minimum Number is Unregistered \n");
 
 
-printk(KERN_INFO "Driver is unloaded from the kernal\n");
+printk(KERN_INFO "Driver is unloaded from the kernel\n");
 
 }
 
@@ -285,6 +285,6 @@ module_exit(driver_unload_fun);
 /************DRIVER META-INFORMATIONS*************/
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("@J");
+MODULE_AUTHOR("[Developer]");
 MODULE_DESCRIPTION("SampleDriver");
 MODULE_VERSION("1.0");

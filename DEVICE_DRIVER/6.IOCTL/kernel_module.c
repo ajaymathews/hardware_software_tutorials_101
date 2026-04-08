@@ -24,7 +24,7 @@
 dev_t maj_min_num=0;
 uint8_t *alloc_kernel_space;
 uint32_t ioctl_space; 
-/*this ioctl_space act similar to the kernal alloction space, but only difference is that it isnt allocated, but is a 32 bit space that stores the values instead of kernel allocation*/
+/*this ioctl_space act similar to the kernel alloction space, but only difference is that it isnt allocated, but is a 32 bit space that stores the values instead of kernel allocation*/
 
 
 static struct class *sample_class;
@@ -161,7 +161,7 @@ static int __init driver_load_fun(void)
 	printk(KERN_INFO "Device file is created,Check '/dev/' \n");
 
 
-	printk(KERN_INFO "Driver is loaded into the kernal\n");
+	printk(KERN_INFO "Driver is loaded into the kernel\n");
 	return 0;
 
 
@@ -200,7 +200,7 @@ unregister_chrdev_region(maj_min_num,1);
 printk(KERN_INFO "Major/Minimum Number is Unregistered \n");
 
 
-printk(KERN_INFO "Driver is unloaded from the kernal\n");
+printk(KERN_INFO "Driver is unloaded from the kernel\n");
 
 }
 
@@ -212,6 +212,6 @@ module_exit(driver_unload_fun);
 /************DRIVER META-INFORMATIONS*************/
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("@J");
+MODULE_AUTHOR("[Developer]");
 MODULE_DESCRIPTION("SampleDriver");
 MODULE_VERSION("1.0");

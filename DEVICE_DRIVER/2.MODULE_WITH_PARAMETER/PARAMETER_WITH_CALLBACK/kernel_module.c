@@ -1,5 +1,5 @@
 /*
-If we create a parameter then the actual file will be in the '/sys/module/pgm_name/parametrs' and when we open the file it has value that we passed or assigned initially. if we cahnge that value as a root user, the value is cahnged, but the kernal doesnt inform user about this eventhough the moodule is already insertd,
+If we create a parameter then the actual file will be in the '/sys/module/pgm_name/parametrs' and when we open the file it has value that we passed or assigned initially. if we cahnge that value as a root user, the value is cahnged, but the kernel doesnt inform user about this eventhough the moodule is already insertd,
 only method is printing the value at rmmod,
  if we want to get notified about the cahnge that take place , callback function is used 
 
@@ -55,7 +55,7 @@ module_param_cb(chang_value,&call_back_fun,&chang_value,S_IRUSR|S_IWUSR|S_IXUSR)
 
 static int __init start_fun(void)
 {				  
-printk(KERN_CRIT "Module is loaded into the kernal\n");
+printk(KERN_CRIT "Module is loaded into the kernel\n");
 printk(KERN_INFO "The value passed at loading module is %d \n",chang_value);
 
 return 0;
@@ -67,7 +67,7 @@ void __exit end_fun(void)
 {
 printk(KERN_INFO "The int_value retained at unloading module is %d \n",int_value);
 printk(KERN_INFO "The change_value retained at unloading module is %d \n",chang_value);
-printk(KERN_CRIT "Module is unloaded from the kernal\n");
+printk(KERN_CRIT "Module is unloaded from the kernel\n");
 
 }
 
@@ -79,6 +79,6 @@ module_exit(end_fun);
 
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("@J");
+MODULE_AUTHOR("[Developer]");
 MODULE_DESCRIPTION("SampleDriver");
 MODULE_VERSION("1.0");

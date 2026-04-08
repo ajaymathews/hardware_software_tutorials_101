@@ -12,7 +12,7 @@ module_param(int_value,int,S_IRUSR|S_IWUSR|S_IXUSR);
 
 static int __init start_fun(void)
 {				  
-printk(KERN_INFO "Module is loaded into the kernal\n");
+printk(KERN_INFO "Module is loaded into the kernel\n");
 printk(KERN_INFO "The integer value passed at loading module is %d \n",int_value);
 
 return 0;
@@ -23,7 +23,7 @@ return 0;
 void __exit end_fun(void)
 {
 printk(KERN_INFO "The value retained at unloading module is %d\n",int_value);
-printk(KERN_INFO "Module is unloaded from the kernal\n");
+printk(KERN_INFO "Module is unloaded from the kernel\n");
 
 }
 
@@ -35,6 +35,6 @@ module_exit(end_fun);
 
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("@J");
+MODULE_AUTHOR("[Developer]");
 MODULE_DESCRIPTION("SampleDriver");
 MODULE_VERSION("1.0");

@@ -5,10 +5,10 @@
 
 
 
-static int __init start_fun(void) /*This functn will execute first when drivr is loaded into the kernal using insmod*/
+static int __init start_fun(void) /*This function will execute first when drivr is loaded into the kernel using insmod*/
 {				  
 
-printk(KERN_INFO "Module is loaded into the kernal\n");/*printf is user space fun, and it cant be used here,but printk is a kernal level function*/
+printk(KERN_INFO "Module is loaded into the kernel\n");/*printf is user space fun, and it cant be used here,but printk is a kernel level function*/
 
 /**********MESSAGE FORMATS FOR PRINTK()*********/
 /*
@@ -22,9 +22,9 @@ return 0;
 
 
 
-void __exit end_fun(void) /* this function will executes when driver is unloaded from the kernal using rmmod */
+void __exit end_fun(void) /* this function will executes when driver is unloaded from the kernel using rmmod */
 {
-printk(KERN_INFO "Module is unloaded from the kernal\n");
+printk(KERN_INFO "Module is unloaded from the kernel\n");
 
 }
 
@@ -37,6 +37,6 @@ module_exit(end_fun);
 /*******META-INFORMATION ABOUT THE MODULE********/
 
 MODULE_LICENSE("GPL");/*to show that the above module is of free open source license meant for software*/
-MODULE_AUTHOR("@J");
+MODULE_AUTHOR("[Developer]");
 MODULE_DESCRIPTION("SampleDriver");
 MODULE_VERSION("1.0");

@@ -18,7 +18,7 @@ static int __init start_fun(void)
 		printk(KERN_CRIT "Major_Minor NUmber assigning is failed\n");
 	}
 		  
-	printk(KERN_CRIT "Module is loaded into the kernal\n");
+	printk(KERN_CRIT "Module is loaded into the kernel\n");
 	return 0;
 }
 
@@ -29,7 +29,7 @@ void __exit end_fun(void)
 unregister_chrdev_region(maj_min_num,1);/*first parmtr is the structure member and second is the range*/
 /*this is the freeying of the allocated maj/min from the kernel*/
 
-printk(KERN_CRIT "Module is unloaded from the kernal\n");
+printk(KERN_CRIT "Module is unloaded from the kernel\n");
 
 }
 
@@ -38,6 +38,6 @@ module_exit(end_fun);
 
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("@J");
+MODULE_AUTHOR("[Developer]");
 MODULE_DESCRIPTION("SampleDriver");
 MODULE_VERSION("1.0");

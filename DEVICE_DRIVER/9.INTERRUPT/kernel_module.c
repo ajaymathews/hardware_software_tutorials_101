@@ -65,7 +65,7 @@ static struct file_operations sample_file_ops =
 static int sample_device_file_open(struct inode *inode, struct file *file)
 {
 	if((alloc_kernel_space =kmalloc(alloc_size, GFP_KERNEL))==0)
-	{/*this function allocates space on the kernal to read and write data to/from device files,and the address of alocated space is passed
+	{/*this function allocates space on the kernel to read and write data to/from device files,and the address of alocated space is passed
 	   to 'alloc_kernel_space' variable */
 		printk(KERN_INFO "Cannot allocate space on kernel");
 		return -1;
@@ -173,7 +173,7 @@ static int __init driver_load_fun(void)
 
 
 
-	printk(KERN_INFO "Driver is loaded into the kernal\n");
+	printk(KERN_INFO "Driver is loaded into the kernel\n");
 	return 0;
 
 
@@ -218,7 +218,7 @@ unregister_chrdev_region(maj_min_num,1);
 printk(KERN_INFO "Major/Minimum Number is Unregistered \n");
 
 
-printk(KERN_INFO "Driver is unloaded from the kernal\n");
+printk(KERN_INFO "Driver is unloaded from the kernel\n");
 
 }
 
@@ -230,6 +230,6 @@ module_exit(driver_unload_fun);
 /************DRIVER META-INFORMATIONS*************/
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("@J");
+MODULE_AUTHOR("[Developer]");
 MODULE_DESCRIPTION("SampleDriver");
 MODULE_VERSION("1.0");
