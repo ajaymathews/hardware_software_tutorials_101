@@ -1,4 +1,4 @@
-# Shell Scripting: Masterclass Tutorial Series
+# Shell Scripting: Tutorial
 
 A comprehensive set of 15+ hands-on tutorials for mastering Bash and Shell scripting. This repository covers everything from basic variables and loops to signal handling and Python integration.
 
