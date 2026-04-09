@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: 1_COUT_CIN.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "1_COUT_CIN.cpp" -o "1_COUT_CIN.exe"
+ * How to Run:     ./"1_COUT_CIN.exe"
+ */
 #include<iostream>
 using namespace std;
 				        // std::cout, std::cin is the operation in normally

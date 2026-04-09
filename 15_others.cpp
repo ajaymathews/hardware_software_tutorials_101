@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: 15_others.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "15_others.cpp" -o "15_others.exe"
+ * How to Run:     ./"15_others.exe"
+ */
 #include<iostream>
 using namespace std;
 #define to_str(x) #x  //this preprocessor will convert x into charcter,

@@ -1,4 +1,11 @@
-/*POLYMORPHISM : function overiding is that, the function name that defined in parent clss and derrived class are similar,
+/* 
+ * Tutorial: 11_Polymorphism.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "11_Polymorphism.cpp" -o "11_Polymorphism.exe"
+ * How to Run:     ./"11_Polymorphism.exe"
+ */
+/*POLYMORPHISM : function overiding is that, the function name that defined in parent clss and derived class are similar,
 then the object created by class will call the function in that classs.*/
 /*
 #include<iostream>
@@ -42,7 +49,7 @@ int main()
 	parent *p=new child();//child() is not a constructor its also a classs.
 	p->display();//in this normally the parent class will be called,
 	             //but if we put a virtual near the parent class function, then by the function overloading
-	             //instead of parent class it will look for same in derrived class and will execute it.
+	             //instead of parent class it will look for same in derived class and will execute it.
 
 }
 */
@@ -54,9 +61,9 @@ class base{
 	public:
 	virtual	void sample1()=0;//this is the pure form of virtual unction, if this is usedd we can create object
 	virtual void sample2()=0;//of the base class, we could create only pointer to the base class.
-							//in which we can assign any derrived class.
+							//in which we can assign any derived class.
 };
-class derrived : public base{
+class derived : public base{
 	int d1,d2;
 	public:
 		void sample1(){
@@ -68,7 +75,7 @@ int main()
 {
 	//base b;
 	base *b_ptr;
-	b_ptr=new derrived();
+	b_ptr=new derived();
 	b_ptr->sample1();
 }
 

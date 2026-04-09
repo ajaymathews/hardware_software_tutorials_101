@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: 16_template.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "16_template.cpp" -o "16_template.exe"
+ * How to Run:     ./"16_template.exe"
+ */
 /*templete is is used when we need to have different data type class object with the
 same class, thus the T becomes different typ as by the object creation*/
 

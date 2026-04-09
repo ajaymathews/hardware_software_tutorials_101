@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: 6_Constructors.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "6_Constructors.cpp" -o "6_Constructors.exe"
+ * How to Run:     ./"6_Constructors.exe"
+ */
 #include<iostream>
 using namespace std;
 
@@ -112,7 +119,7 @@ class numbers
 		numbers(numbers(&n))//copy constructor
 		{
 			a=n.a;
-		//	p=n.p; //its actually not creating but acessing the already created array of the abaove consructor,
+		//	p=n.p; //its actually not creating but accessing the already created array of the abaove consructor,
 				  //thus changing any value fom this will actually change the above also.
 			p=new int[a];//to avoid that this need its own array space location with same size of above. 
 		}

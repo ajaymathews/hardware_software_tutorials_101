@@ -1,5 +1,12 @@
+/* 
+ * Tutorial: 8_friend.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "8_friend.cpp" -o "8_friend.exe"
+ * How to Run:     ./"8_friend.exe"
+ */
 /* using the keyword friend inside the base class with a function or another class, we can make any function or class
-a friend of the base class,so by that we can acess the members of base class to the friend function or class and
+a friend of the base class,so by that we can access the members of base class to the friend function or class and
 then,  outside the class it can be defined or operated as any normal function or class, */
 /*
 #include<iostream>
@@ -14,7 +21,7 @@ class base
 		int get_a();
 		int get_b();
 		//friend void sum();
-		friend derr; //here the derrived class is friend of base and thus derrived can acess the varibles,
+		friend derr; //here the derived class is friend of base and thus derived can access the varibles,
 					// by creating an object of base class in derr class 
 };
 class derr
@@ -32,7 +39,7 @@ class derr
 /* //this function s for when friend sum() is used
 void sum()
 {
-	base obj; //defining an object of class base on function, and using function as friend acessing the variables.
+	base obj; //defining an object of class base on function, and using function as friend accessing the variables.
 	int c=obj.a+obj.b;
 	cout<<"sum="<<c;
 }

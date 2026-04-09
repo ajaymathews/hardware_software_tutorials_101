@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: 4_function.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "4_function.cpp" -o "4_function.exe"
+ * How to Run:     ./"4_function.exe"
+ */
 /*static variable and globl varible are stored in the code section below the stack memory.(that is lowest bottom)
 
 
@@ -111,7 +118,7 @@ int main()
 
 
 /************ call by refernce ***************/
-/*actually using call by value method, it can acess the variable loaction like call by adresss*/
+/*actually using call by value method, it can access the variable loaction like call by adresss*/
 /*
 #include<iostream>
 using namespace std;

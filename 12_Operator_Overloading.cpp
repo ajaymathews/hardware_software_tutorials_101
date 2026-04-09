@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: 12_Operator_Overloading.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "12_Operator_Overloading.cpp" -o "12_Operator_Overloading.exe"
+ * How to Run:     ./"12_Operator_Overloading.exe"
+ */
 /*******Overloading operator***********/
 /*using this we can 2 object variables and store the result in other
 object with the variable.*/

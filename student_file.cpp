@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: student_file.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "student_file.cpp" -o "student_file.exe"
+ * How to Run:     ./"student_file.exe"
+ */
 #include<iostream>
 #include<fstream>
 using namespace std;

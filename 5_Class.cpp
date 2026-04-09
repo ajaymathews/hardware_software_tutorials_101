@@ -1,10 +1,17 @@
+/* 
+ * Tutorial: 5_Class.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "5_Class.cpp" -o "5_Class.exe"
+ * How to Run:     ./"5_Class.exe"
+ */
 /*
 #include<iostream>
 using namespace std;
 class rectangle
 {	public:
 		int length,breadth; //by deafult it become private,so we cant access this from main() 
-	     					//therefore to acess it in main(), use public:	
+	     					//therefore to access it in main(), use public:	
 		int area()
 		{ return (length*breadth); }
 		
@@ -20,7 +27,7 @@ int main()
 	cout<<r1.area();	}
 */
 
-/******** acessing class using pointer*********/
+/******** accessing class using pointer*********/
 /*
 int main()
 { 

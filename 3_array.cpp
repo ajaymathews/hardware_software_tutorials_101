@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: 3_array.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "3_array.cpp" -o "3_array.exe"
+ * How to Run:     ./"3_array.exe"
+ */
 #include<iostream>
 using namespace std;
 int main()

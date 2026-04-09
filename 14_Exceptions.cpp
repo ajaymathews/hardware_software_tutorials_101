@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: 14_Exceptions.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "14_Exceptions.cpp" -o "14_Exceptions.exe"
+ * How to Run:     ./"14_Exceptions.exe"
+ */
 /*try and catch works even from the functions, also we can throw a clsss object, and by that we can have any number of
 thrws as the different types of classes used*/
 #include<iostream>

@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: 13_file.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "13_file.cpp" -o "13_file.exe"
+ * How to Run:     ./"13_file.exe"
+ */
 #include<iostream>
 #include<fstream>
 using namespace std;

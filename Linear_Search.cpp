@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: Linear_Search.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "Linear_Search.cpp" -o "Linear_Search.exe"
+ * How to Run:     ./"Linear_Search.exe"
+ */
 #include<iostream>
 using namespace std;
 

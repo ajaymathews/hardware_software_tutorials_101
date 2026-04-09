@@ -1,3 +1,10 @@
+/* 
+ * Tutorial: stack.cpp
+ * Description: Part of the C++ Programming Tutorial Series
+ * 
+ * How to Compile: g++ "stack.cpp" -o "stack.exe"
+ * How to Run:     ./"stack.exe"
+ */
 #include<iostream>
 using namespace std;
 
