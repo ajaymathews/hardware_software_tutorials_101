@@ -28,7 +28,7 @@ void systickdelayMs(int n)
 volatile uint32_t tick;              //THIS VARIABLE MUSTBE VOLATILE,BCZ, VOLATILE VALUE CAN BE
                                     //CHNGED WITHOUT CHNGING IT IN CODE.ALSO VARIBLES USED IN AN 
 									// INTRRPT HANDLER ALSO SHOULB BE A VOLATILE
-volatile uint32_t _tick;           //TICK IS USED TO INCREMNT TICK, AND _TICK TO STORE THE TICK AT EACH GET VALUE,
+volatile uint32_t _tick;           //TICK IS USED TO increment TICK, AND _TICK TO STORE THE TICK AT EACH GET VALUE,
                                    //AND PASSSED THUS I ANYCASE THE ORIGINAL TICK IS NOT AFFECTED
 
 

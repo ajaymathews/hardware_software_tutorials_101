@@ -1,7 +1,7 @@
 /*
 FROM THE 11 TIMERS IN ARM, SYSTICK TIMER IS A SEPERATE TIMER WHICH IS 24 BIT COUNTER. ie, FROM 0 TO 
 (2^24)-1  [(2^24=16777215)], AND TIMER COUNTS FROM VALUETO ZERO, UPON REACHING ZERO INTERRUPT IS CALLED.
-EACH TIMER VALUE IS INCREMNTED UPON EACH CLOCK. 
+EACH TIMER VALUE IS incrementED UPON EACH CLOCK. 
 
 count value increments as the prescalar value and thus, when each count reaches a certain value
   led is toggled each task of different colour led is hndled simultaneously 

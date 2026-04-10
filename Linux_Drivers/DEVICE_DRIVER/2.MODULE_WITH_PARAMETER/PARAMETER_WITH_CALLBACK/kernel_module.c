@@ -15,7 +15,7 @@ This function/macro is defined in the headerfiles of the kernel.
 
 what we are trying to do is make a member for this macro by its name 'kernel_param_ops'.
 
-Thus we create call_back_fun as its member with vaiables modified_set_int() and param_set_int()(param_set_short also applicable) adressess in the position of set() and get() like assigning a value to the structure student s={name="name",roll_no=20}.we use adress of the 2 function is because these get() and set() are function pointers.
+Thus we create call_back_fun as its member with vaiables modified_set_int() and param_set_int()(param_set_short also applicable) ADDRESSess in the position of set() and get() like assigning a value to the structure student s={name="name",roll_no=20}.we use ADDRESS of the 2 function is because these get() and set() are function pointers.
 
 ' const struct kernel_param_ops call_back_fun = {.set = &modified_set_int,
 					         .get = &param_get_int    }; '
@@ -48,7 +48,7 @@ int set_status=param_set_int(val,kp);
 const struct kernel_param_ops call_back_fun = { .set=&modified_set_int ,
 					        .get=&param_get_int};     
 
-/*if the param_get_int() check for the data is changed, and it is printed after if it is not used we cant even chnge the value from the parameter variable file, then if param_get_int() is not used , eventhough we change the value inside the file.after cahnging if we open the file again it still sees as empty, but the value of varaible chnged inside kernel*/
+/*if the param_get_int() check for the data is changed, and it is printed after if it is not used we cant even chnge the value from the parameter variable file, then if param_get_int() is not used , eventhough we change the value inside the file.after cahnging if we open the file again it still sees as empty, but the value of variable chnged inside kernel*/
  
 module_param(int_value,int,S_IRUSR|S_IWUSR|S_IXUSR);
 module_param_cb(chang_value,&call_back_fun,&chang_value,S_IRUSR|S_IWUSR|S_IXUSR);

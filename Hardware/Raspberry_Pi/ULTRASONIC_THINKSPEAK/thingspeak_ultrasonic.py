@@ -9,7 +9,7 @@ ECHO = 5
 
 GPIO.setup(TRIG,GPIO.OUT)
 GPIO.setup(ECHO,GPIO.IN)
-myAPI = "L7Z2JY30EHXQNGTJ"  # Put your API Key here
+myAPI = "YOUR_API_KEY_HERE"  # Replace with your ThinkSpeak Write API Key
 baseURL = 'https://api.thingspeak.com/update?api_key=%s' % myAPI 
 def ultrason():
     while True:
@@ -34,6 +34,11 @@ def ultrason():
         time.sleep(20)
         conn.close()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
+    try:
+        while True:
+            ultrason()
+    finally:
+        GPIO.cleanup()
         while True:
                 ultrason()

@@ -37,7 +37,7 @@ while(1)
 
 void TIM4_IRQHandler(void)  //TIMER INTERRUPT HANDLER IS CALLED EVERY 1MS
 {
-  count4++;                  //COUNT VALUE INCREMNTED UPON EVERY TIMER INTERRUPT
+  count4++;                  //COUNT VALUE incrementED UPON EVERY TIMER INTERRUPT
   HAL_TIM_IRQHandler(&htim4);
 }
 
