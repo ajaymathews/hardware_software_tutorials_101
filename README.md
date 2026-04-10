@@ -1,6 +1,6 @@
-# Ajay's Master Tutorial Collection (2023-2026)
+# Tutorial Collection
 
-Welcome to my comprehensive, multi-year collection of programming and hardware tutorials. This repository preserves the full Git history of 6+ major projects, covering everything from low-level ARM development to high-level Python mini-projects.
+Welcome to my comprehensive, multi-year collection of programming and hardware tutorials. This repository preserves the full Git history of 6+ mini projects, covering everything from low-level ARM development to high-level Python mini-projects.
 
 ## 🚀 Repository Roadmap
 
