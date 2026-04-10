@@ -32,7 +32,7 @@ void task2(void){
 while(1)
 {	signalwait(&semaphore1);//WAIT TILL TASK1 IS COMPLETE
 	count2++;
-	signalset(&semaphore2);//incremnt semaphore 2 BY ONE, and only this can release the the task1 from SPINNING while LOOP
+	signalset(&semaphore2);//increment semaphore 2 BY ONE, and only this can release the the task1 from SPINNING while LOOP
 	                       //WE CAN INCLUDE AS MUCH OF TASK LINES INBETWEEN THIS, BCZ ONLY AFTER THAT TASK1 WILL EXECUTE
   }
 }
