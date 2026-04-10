@@ -1,0 +1,42 @@
+[p LITE_MODE AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 6 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"38 C:\Users\AJAY\Documents\MPLABX\PIC_16F\TIMER\TIMER0.X\newmain.c
+[v _main main `(v  1 e 1 0 ]
+"59 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f877a.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"216
+[v _PORTB PORTB `VEuc  1 e 1 @6 ]
+"1375
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"2569
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"2629
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"2635
+[v _PS0 PS0 `VEb  1 e 0 @1032 ]
+"2644
+[v _PSA PSA `VEb  1 e 0 @1035 ]
+"2845
+[v _T0CS T0CS `VEb  1 e 0 @1037 ]
+"2878
+[v _TMR0IE TMR0IE `VEb  1 e 0 @93 ]
+"2881
+[v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
+"24 C:\Users\AJAY\Documents\MPLABX\PIC_16F\TIMER\TIMER0.X\newmain.c
+[v _value value `uc  1 e 1 0 ]
+"38
+[v _main main `(v  1 e 1 0 ]
+{
+"54
+} 0

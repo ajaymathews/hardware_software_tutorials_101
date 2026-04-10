@@ -1,0 +1,179 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2 
+                                                            ;DEFINING CODE AREA
+                                                             WHICH IS READONLY
+    2 00000000                 THUMB                        ;THUMB DIRECTIVE
+    3 00000000                 PRESERVE8                    ;directive, used to
+                                                             preserve8 by its a
+                                                            lignment
+    4 00000000                 EXTERN           currentptr  ;DECLARING CURRENTP
+                                                            TR AS EXTERN
+    5 00000000                 EXPORT           SysTick_Handler
+    6 00000000                 EXPORT           SchedulerLaunch
+    7 00000000                 IMPORT           schedular_round_robin ;to chnge
+                                                             the current ptr as
+                                                            sembly code into c 
+                                                            code
+    8 00000000         
+    9 00000000         
+   10 00000000         
+   11 00000000         ;SYSTICK IS A PERIODIC INTERRUPT WITH PERIOD DETERMINED 
+                       BY THE QUANTA
+   12 00000000         ;NEED TO SAVE 16 REGISTERS TO STACK BEFORE HANDLING SYST
+                       ICK EXCEPTION
+   13 00000000         SysTick_Handler                      ;INVOKING SYSTICK H
+                                                            ANDLER, SAVING R0,R
+                                                            1,R2,R3,R12,LR,PC,P
+                                                            SR [CONTEXT OF THRE
+                                                            AD IS IN THESE REG]
+                                                            
+   14 00000000 B672            CPSID            I           ;DISBALING INTERRUP
+                                                            T
+   15 00000002 E92D 0FF0       PUSH             {R4-R11}    ;SAVING R4,R5,R6,R7
+                                                            ,R8,R9,R10,R11
+   16 00000006 480F            LDR              R0,=currentptr ;LOAD CURRENT PO
+                                                            INTER IN .C FILE PO
+                                                            INTING TO CURRENT T
+                                                            CB INTO R0
+   17 00000008 6801            LDR              R1,[R0]     ;FROM R0 POINTING T
+                                                            O R1, R1=CURRENT_PT
+                                                            R
+   18 0000000A         ;THUS WE HAVE SAVED ALL 16 EGISTERS, BUT NOT STACK POINT
+                       ER REG
+   19 0000000A F8C1 D000       STR              SP,[R1]     ;SAVING SP OF M-COR
+                                                            TEX TO SP OF THREAD
+                                                            
+   20 0000000E         ;R1 = STACK POINTER WHICH ALSO HAS VALUE OF CURRENT PTR 
+                        
+   21 0000000E         
+   22 0000000E         ;WE WANT TO IMPLEMENT THE BELOW LINE IN C LNG, THE THREA
+                       D SWITCHING TAKES PLACE THERE
+   23 0000000E         
+   24 0000000E         ;LDR  R1,[R1,#4]      ;NEXT THREAD IS NEEDED FOR SCHEDUL
+                       AR THUS 
+   25 0000000E         ;#4 IS FOR 2ND ENTRY OF TCB, R1 = CURRENTPTR->NEXT
+   26 0000000E         ;STR  R1,[R0]      ;CURRENTPTR = R1 
+   27 0000000E         
+   28 0000000E         
+   29 0000000E         
+   30 0000000E B501            PUSH             {R0,LR}     ;RO TO LR
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   31 00000010 F7FF FFFE       BL               schedular_round_robin ;branch t
+                                                            o roudrobin fun
+   32 00000014         
+   33 00000014 E8BD 4001       POP              {R0,LR}     ;these lines are on
+                                                            ly in the code, not
+                                                             video
+   34 00000018 6801            LDR              R1,[R0]     ;these lines are on
+                                                            ly in the code, not
+                                                             video
+   35 0000001A         
+   36 0000001A F8D1 D000       LDR              SP,[R1]     ;TO LAUNCH NEW THRE
+                                                            AD SP NEDES TO BE U
+                                                            PDATED, SP =CURRENT
+                                                            PTR->STACKPTR
+   37 0000001E E8BD 0FF0       POP              {R4-R11}    ;RESTORE ALL R4-R11
+                                                            
+   38 00000022 B662            CPSIE            I           ;ENABLED THE INTERR
+                                                            UPT
+   39 00000024         
+   40 00000024 4770            BX               LR          ;SAVED 8 REGISTERS 
+                                                            ARE RESTORED AUTOMA
+                                                            TICALLY WHEN EXITIN
+                                                            G
+   41 00000026         
+   42 00000026         
+   43 00000026         SchedulerLaunch
+   44 00000026 4807            LDR              R0,=currentptr
+   45 00000028 6802            LDR              R2,[R0]     ;R2=currentptr
+   46 0000002A F8D2 D000       LDR              SP,[R2]     ;SP=currentptr->sta
+                                                            ckptr
+   47 0000002E E8BD 0FF0       POP              {R4-R11}    ;RESTORING REGISTER
+                                                            S
+   48 00000032 BC0F            POP              {R0-R3}
+   49 00000034 F85D CB04       POP              {R12}
+   50 00000038         
+   51 00000038 B001            ADD              SP,SP,#4
+   52 0000003A F85D EB04       POP              {LR}
+   53 0000003E B001            ADD              SP,SP,#4
+   54 00000040 B662            CPSIE            I
+   55 00000042 4770            BX               LR
+   56 00000044         
+   57 00000044                 ALIGN
+   58 00000044                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\objects\kernel_1.d -o.\objects\kernel_1.o -I.\RTE\Device\STM3
+2F411VETx -I.\RTE\_STM32F4 -IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Core\Inc
+lude -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\ST
+M32F4xx\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\STM32F4
+xx_HAL_Driver\Inc --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SE
+TA 526" --predefine="_RTE_ SETA 1" --predefine="STM32F411xE SETA 1" --list=.\li
+stings\kernel.lst kernel.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 1 in file kernel.s
+   Uses
+      None
+Comment: .text unused
+SchedulerLaunch 00000026
+
+Symbol: SchedulerLaunch
+   Definitions
+      At line 43 in file kernel.s
+   Uses
+      At line 6 in file kernel.s
+Comment: SchedulerLaunch used once
+SysTick_Handler 00000000
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 13 in file kernel.s
+   Uses
+      At line 5 in file kernel.s
+Comment: SysTick_Handler used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+currentptr 00000000
+
+Symbol: currentptr
+   Definitions
+      At line 4 in file kernel.s
+   Uses
+      At line 16 in file kernel.s
+      At line 44 in file kernel.s
+
+schedular_round_robin 00000000
+
+Symbol: schedular_round_robin
+   Definitions
+      At line 7 in file kernel.s
+   Uses
+      At line 31 in file kernel.s
+Comment: schedular_round_robin used once
+2 symbols
+342 symbols in table
