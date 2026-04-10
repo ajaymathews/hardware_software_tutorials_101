@@ -1,0 +1,2 @@
+1)Uninitialized variables in an ARRAY are garabage values, 
+  better to always initialize array in a for loop.

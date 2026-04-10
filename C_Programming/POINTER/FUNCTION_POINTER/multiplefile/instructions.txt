@@ -1,0 +1,35 @@
+To compile multiple file in a VSCode, you need to include it as a seperate workspace ,
+1) file -> add folder to workspace 
+ : thus the folder will be added to the workspace
+2) from the selected workspace, open the .vscode folder , from that open the tasks.json file
+change the parameter
+                    "args": [
+                                    "-fdiagnostics-color=always",
+                                    "-g",
+                                    "${file}/",
+                                    "-o",
+                                    "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                                ],
+
+into
+                    "args": [
+                                    "-fdiagnostics-color=always",
+                                    "-g",
+                                    "${workspaceFolder}/*.c",
+                                    "${workspaceFolder}/*.h",
+                                    "-o",
+                                    "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                                ],
+
+*also if tou want to include a .h file inside another folder into your compilation, 
+make it 
+                    "args": [
+                                    "-fdiagnostics-color=always",
+                                    "-g",
+                                    "${workspaceFolder}/*.c",
+                                    "${workspaceFolder}/subfoldername/*.h",
+                                    "-o",
+                                    "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                                ],
+
+
