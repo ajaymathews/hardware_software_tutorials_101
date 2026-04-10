@@ -1,0 +1,12 @@
+# Shell Scripting temporary files
+*.save
+*.swp
+*~
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# OS files
+.DS_Store
+Thumbs.db
