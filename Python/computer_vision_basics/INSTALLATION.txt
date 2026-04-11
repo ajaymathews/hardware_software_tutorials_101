@@ -1,0 +1,2 @@
+1)installed pip  : python pip.py
+2)install tkinter(as of python3) and Tkinter(for python2)
