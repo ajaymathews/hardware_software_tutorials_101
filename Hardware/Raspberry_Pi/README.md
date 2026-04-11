@@ -59,4 +59,3 @@ graph LR
 - [SERVO/](SERVO/): Standard servo motor control using PWM.
 - [ULTRASONIC_THINKSPEAK/](ULTRASONIC_THINKSPEAK/): IoT integration sending data to the cloud.
 - [VR_REMOTE/](VR_REMOTE/): Advanced I2C interfacing for remote control.
-- [**Modern_gpiozero/**](Modern_gpiozero/): (New) Best-practice examples using the modern Python library.
