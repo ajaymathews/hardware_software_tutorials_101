@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "enter some ip adress seprtd by space"
+echo "enter some ip ADDRESS seprtd by space"
 read -a ip
 
 for i in ${ip[@]}
