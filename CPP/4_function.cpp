@@ -5,7 +5,7 @@
  * How to Compile: g++ "4_function.cpp" -o "4_function.exe"
  * How to Run:     ./"4_function.exe"
  */
-/*static variable and globl varible are stored in the code section below the stack memory.(that is lowest bottom)
+
 
 
 /******* function overloading********/
@@ -72,6 +72,24 @@ int main()
  fun('a','k');
  //fun(1,'a'); //we cant use this because at a time t will recieve only one type.
 }
+
+
+/******* Mix data type using template *******/ 
+// Using two template parameters allows mixed types
+/*
+
+template <typename T1, typename T2>
+void add_diff_dt(T1 x, T2 y) {
+    cout << "Result: " << x + y << endl;
+}
+
+int main() {
+    add_diff_dt(10, 20.5f); // Works! T1 is int, T2 is float
+    add_diff_dt(5.5, 2);    // Works! T1 is double, T2 is int
+    add_diff_dt('A', 1);    // Works! Adds ASCII value (65 + 1 = 66)
+    return 0;
+}
+
 
 /***** template in array passsing*******/
 /*
