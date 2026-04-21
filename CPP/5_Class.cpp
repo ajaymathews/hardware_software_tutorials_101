@@ -5,7 +5,7 @@
  * How to Compile: g++ "5_Class.cpp" -o "5_Class.exe"
  * How to Run:     ./"5_Class.exe"
  */
-/*
+// /*
 #include<iostream>
 using namespace std;
 class rectangle
@@ -28,23 +28,34 @@ int main()
 */
 
 /******** accessing class using pointer*********/
-/*
+// /*
 int main()
 { 
 /*creating a norml class pointer and assigning object adress to it,
   here the varibles to the object(r1.length, etc..) are created in stack.*/ 
 		/*
-		rectangle *r_ptr, r1;//this r_ptr is the pointer to object, for that it must be type of class.
-		r_ptr = &r1; //this is the important step,only this will point the object to the pointer
+		rectangle *r_ptr, r1;//object us created here
+		//this r_ptr is the pointer to object, for that it must be type of class.
+		r_ptr = &r1; //pointer knows the adress of r1 now
+		//this is the important step,only this will point the object to the pointer
+		r_ptr->length=1;
+		r_ptr->breadth=2;
+		cout<<r_ptr->area();
 		*/
-	
+
+		
 /*creating an object with its members on a heap memory using pointer	*/
-/*
-		rectangle *r_ptr = new rectangle(); 
+//  /*
+		rectangle *r_ptr = new rectangle(); //creates a new memory in heap and 
+											//assigns it to r_ptr 
+											//this rectangle() is constructor
 		r_ptr->length=10;
 		r_ptr->breadth=20;
 		cout<<r_ptr->area();
-} */
+
+		delete r_ptr; //destroy rectangle
+} 
+//   */
 
 
 

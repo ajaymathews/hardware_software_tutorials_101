@@ -52,7 +52,8 @@ int main()
 	             //instead of parent class it will look for same in derived class and will execute it.
 
 }
-*/
+//   */
+/*
 
 #include<iostream>
 using namespace std;
@@ -79,4 +80,4 @@ int main()
 	b_ptr->sample1();
 }
 
-
+*/

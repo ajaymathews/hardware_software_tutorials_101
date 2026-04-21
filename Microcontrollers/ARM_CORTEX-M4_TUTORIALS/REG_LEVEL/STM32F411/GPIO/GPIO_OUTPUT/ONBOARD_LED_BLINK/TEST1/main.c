@@ -120,7 +120,7 @@ void Dely(uint32_t sec){
 }
 
 /*
-In this we are creating a delay using for loop ie, without using any timers for 16mhz
+In this we are creating a delay using for loop ie, without using any timers for 16mhz  
 */
 void delayMs(int delay)
 {
@@ -130,7 +130,7 @@ void delayMs(int delay)
 		for(i=0;i<3195;i++);//execution runs for 1ms inside loop
 	}
 }
-
+// i think this is blocking delay, as the processor is busy in executing the loop, and not doing any other work, thus it is not a good way to create a delay, as it is not accurate and also it is not power efficient,
 
 
 void GPIO_Init(){
@@ -162,7 +162,7 @@ void RED_BLINK()
 	  /*
 		GPIOD->BSRR=1<<14;//SETS THE PIN 14
 		delayMs(1000);
-		GPIOD->BSRR=1<<30;//RESETS THE PIN 14	
+		GPIOD->BSRR~=1<<14;//RESETS THE PIN 14	
 		delayMs(1000);
 		*/	
 		Dely(1);   }

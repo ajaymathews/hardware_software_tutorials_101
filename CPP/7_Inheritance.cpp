@@ -16,7 +16,8 @@ using namespace std;
 
 class date
 {
-	private:
+	private:              
+	//if i change private: into protected: , then derrived class time() can access the private variables of the base class date() directly, but main can't
 		int day,mon,yr;
 	public:
 		int get_day();

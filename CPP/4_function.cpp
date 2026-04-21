@@ -89,7 +89,7 @@ int main() {
     add_diff_dt('A', 1);    // Works! Adds ASCII value (65 + 1 = 66)
     return 0;
 }
-
+/*
 
 /***** template in array passsing*******/
 /*
@@ -146,7 +146,7 @@ b=b+10;  }
  
 int main()
 {int x=1,y=2;
- fun(x,y);
+ fun(x,y);//passed parameter value
  cout<<"int fun(int,int) "<<x<<":"<<y<<endl; 
 }*/
 

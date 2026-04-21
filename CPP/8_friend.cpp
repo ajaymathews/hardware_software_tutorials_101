@@ -43,6 +43,8 @@ void sum()
 	int c=obj.a+obj.b;
 	cout<<"sum="<<c;
 }
+
+// please note: class derr() can access the private variables of the base class, but base can't access the private variables of the class derr() unless class derr() is declared as friend of base() class.
 */
 /*
 int main()
@@ -73,7 +75,7 @@ class base
 		}
 		static fun()
 		{
-			count --; //only static bariable can be used inside the static function.
+			count --; //only static variable can be used inside the static function.
 			//eg:creatiing a constructor to crwate students, as the student objet is creted admmsn no ++ in constructor
 		}
 };
@@ -106,6 +108,12 @@ class linkedlist
 void main()
 {
 	linkedlist::node n2;
+
+	//linkedlist class can acess the node member.
+	linkedlist l1;
+	l1.n1->data=10;
+	
+	
 }
 
 

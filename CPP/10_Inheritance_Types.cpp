@@ -5,7 +5,7 @@
  * How to Compile: g++ "10_Inheritance_Types.cpp" -o "10_Inheritance_Types.exe"
  * How to Run:     ./"10_Inheritance_Types.exe"
  */
-/*protected is another access specifier like public, such as the derived class can access theprotected data from parent, 
+/*protected is another access specifier like public, such that the derived class can access theprotected data from parent, but the main cant use that data.
 but when creating the object, the data cnnnot be accessed by the object,protected data can be accessde inside class,and derived class.*/
 
 #include<iostream>
@@ -133,6 +133,7 @@ cout<<"parent(p)"<<p_ptr->get_p_age()<<endl;
 
 
 p_ptr=&c;//this command is necessary to make the class p and c, to b accessed the same data from the class
+
 p_ptr->set_p_age(110);
 c_ptr->set_p_age(105);
 cout<<"parent(c)"<<c_ptr->get_p_age()<<endl;

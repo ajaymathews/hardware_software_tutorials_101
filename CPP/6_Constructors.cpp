@@ -59,7 +59,7 @@ use of constructor:
 
 /* 4) ************ Copy Constructor ******************/	
 
-		rectangle(rectangle(&cpy_rec))
+		rectangle(rectangle(&cpy_rec)) //it points to same object rather than ceating a copy, thats why & , if not used prgrm tries to create a copy,but need to pass a copy of object to copy constructor, thus infinite loop.
 		{
 			setlength(cpy_rec.length);
 			setbreadth(cpy_rec.breadth);
@@ -94,6 +94,8 @@ use of constructor:
 			
 		int rectangle::getbreadth()
 		{	return this->breadth;	}
+
+		//'this' will be used as r1 or r2 as the object name defined in main()
 		
 		
 int main()
@@ -116,12 +118,20 @@ class numbers
 		{	a=num;
 			p=new int[a];//creating an array to the p th location. 
 		}
-		numbers(numbers(&n))//copy constructor
-		{
+		numbers(const numbers(&n))
+		{							//copy constructor, use const to avoid 
+									//modifying the original object
 			a=n.a;
-		//	p=n.p; //its actually not creating but accessing the already created array of the abaove consructor,
-				  //thus changing any value fom this will actually change the above also.
-			p=new int[a];//to avoid that this need its own array space location with same size of above. 
+		//	p=n.p; 
+				//its actually not creating but accessing the already created array of the abaove consructor,
+				//thus changing any value fom this will actually change the above also. so it fails the functionality of a opy constructor, so always use below method 
+
+			p=new int[a];
+			//to avoid that this need its own array space location with same size of above. 
+			
+			for(int i = 0; i < a; i++) {
+        	p[i] = n.p[i]; // Copy the actual values fro the original object to copy object
+    }
 		}
 		read_arr()
 		{
@@ -144,6 +154,15 @@ class numbers
 			delete[]p;
 			p=NULL;
 		}
+
+
+	~ numbers() 
+	{
+					//this will be called automatically, even if we forgot to call delete_arr to free the memory
+		cout<<"destructor called"<<endl;
+		delete[]p;
+		p=NULL;
+	}
 };
 
 int main()
