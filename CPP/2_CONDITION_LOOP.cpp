@@ -9,7 +9,14 @@
 using namespace std;
 int main()
 { int num1,num2;
-cout<<":"; cin>>num1; cout<<":"; cin>>num2;
+cout<<":"; 
+cin>>num1; 
+cout<<":"; 
+cin>>num2;
+if ( (num1 > num2) or (num1 > 10 ) )
+	cout<<"num1 is greater";
+else
+	cout<<"num2 is greater";
 /*
 	if(num1 > num2 || num1 > 10){ //the condition for 'or', 'and' (&&)  ,
 		cout<<"num1 is greater";
