@@ -8,55 +8,78 @@
 // /*
 #include<iostream>
 using namespace std;
-class rectangle
-{	public:
-		int length,breadth; //by deafult it become private,so we cant access this from main() 
-	     					//therefore to access it in main(), use public:	
+
+class rectangle{	
+	private:
+		int pri_length, pri_breadth;
+
+	public:
+		//by default variables and function inside a class  become private,so we cant access this from main(), therefore to access it in main(), use public:	
+
+		int length,breadth; 
+
 		int area()
 		{ return (length*breadth); }
 		
 		int peri()
-		{ return (2*(length+breadth)); }	};
-		
-/******** creating a class and its objects*********/
-/*
-int main()
-{	rectangle r1,r2;//this r1 and r2 are the objects.
-	r1.length=10;
-	r1.breadth=20;
-	cout<<r1.area();	}
-*/
+		{ return (2*(length+breadth)); }	
 
-/******** accessing class using pointer*********/
-// /*
+		
+	~rectangle() //this will b called a the end of the program automatically
+		{cout<<"destructor called "<<endl;}
+	
+	};
+
+
+
 int main()
 { 
-/*creating a norml class pointer and assigning object adress to it,
-  here the varibles to the object(r1.length, etc..) are created in stack.*/ 
-		/*
-		rectangle *r_ptr, r1;//object us created here
-		//this r_ptr is the pointer to object, for that it must be type of class.
-		r_ptr = &r1; //pointer knows the adress of r1 now
-		//this is the important step,only this will point the object to the pointer
-		r_ptr->length=1;
-		r_ptr->breadth=2;
-		cout<<r_ptr->area();
-		*/
 
-		
-/*creating an object with its members on a heap memory using pointer	*/
-//  /*
-		rectangle *r_ptr = new rectangle(); //creates a new memory in heap and 
-											//assigns it to r_ptr 
-											//this rectangle() is constructor
-		r_ptr->length=10;
-		r_ptr->breadth=20;
-		cout<<r_ptr->area();
+	/************  Creating a class and its objects ************/
+	rectangle r1,r2;//this r1 and r2 are the objects.
+	r1.length=10;
+	r1.breadth=20;
+	//r1.pri_length=10;//cannot access as this is a private variable
+	
+	cout<<"area() using object : "<<r1.area()<<endl;
 
-		delete r_ptr; //destroy rectangle
+
+
+
+
+	/************ Using Pointer *************/
+	
+	rectangle *r_ptr;
+	//class pointer to hold the adress of the class
+
+	r_ptr = &r1; 
+	//pointer knows the address of r1 now
+	//this is the important step,only this will point the object to the pointer
+
+	cout<<"checking poniter hold previous r1 area() value :"<<r_ptr->area()<<endl;
+	//calling object function of r1 using pointer r_ptr
+
+	//modifying the r1 object values
+	r_ptr->length=1;
+	r_ptr->breadth=2;
+	//r_ptr->pri_length=10;//cannot access as this private variable from main()
+	cout<<"area() using pointer : "<<r_ptr->area()<<endl;	
+
+
+
+
+
+
+/************ Dynamic memory allocation (in heap) for class object */
+
+	rectangle *dyn_r_ptr = new rectangle(); 
+	//creates a new memory in heap and assigns it to dyn_r_ptr 
+	//this rectangle() is constructor
+
+	dyn_r_ptr->length=100;
+	dyn_r_ptr->breadth=100;
+	//dyn_r_ptr->pri_length=10;//cannot access as this is a private variable
+	cout<<"area() using dynamic pointer : "<<dyn_r_ptr->area()<<endl;
+
+	delete dyn_r_ptr; //free the dynamic memory of rectangle
 } 
-//   */
-
-
-
-

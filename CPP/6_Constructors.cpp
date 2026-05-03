@@ -12,6 +12,7 @@ class rectangle
 {
 	private:
 		int length,breadth;
+		
 	public:
 		int setlength(int l);		
 		int setbreadth(int b);
