@@ -6,6 +6,7 @@
  * How to Run:     ./"1_COUT_CIN.exe"
  */
 #include<iostream>
+//no need to add .h in header in cpp
 using namespace std;
 // std::cout, std::cin is the operation in normally
 //we can remove this std:: by using 'namespace std' on top*/
@@ -30,6 +31,11 @@ int main()
 	cout<<"Enter the full name:"<<endl;
 	cin>>c_name;
 	//cin reads only the first name only, doesnt read spaces. cin puts the /n after its read till space(here it is first name)
+	//cin>> interacts with buffer rather than scanf() memory space
+	//cin>> skips the space if entered before entering data unlike in c
+	// (scanf(" %c", &ch))
+
+	//cin.get(): Reads a single character, including whitespace not like cin>>
 
    //getline() reads last name after the space(which is replaced by /n by cin) automatically, so it skips getline(), it is called phantom read
 
@@ -40,6 +46,9 @@ int main()
 	cout<<"Enter the full name:"<<endl;
 	getline(cin,s_name);
 	//getline is used to read the input with spaces
+	//getline(cin,name) is defined n string header file
+	//where as cin.getline(char_array, size) is defined in iostream header file
+
 
 	cout<<"integer value :"<<i_val<<endl;
 	cout<<"Maximum Integer:"<<val_max<<endl;

@@ -5,6 +5,8 @@
  * How to Compile: g++ "8_friend.cpp" -o "8_friend.exe"
  * How to Run:     ./"8_friend.exe"
  */
+
+ 
 /* using the keyword friend inside the base class with a function or another class, we can make any function or class
 a friend of the base class,so by that we can access the members of base class to the friend function or class and
 then,  outside the class it can be defined or operated as any normal function or class, */

@@ -118,4 +118,6 @@ dy_arr=NULL; // initilaizing it to a null value to avoid a wild pointer scenerio
 dy_arr_new=NULL;
 
 }
-
+/******  'delete[]' is used to free the dynamic memory allocated for the array. 
+  just   'delete' is used to free the dynamic memory allocated for the object or pointer variable.	 
+ */
