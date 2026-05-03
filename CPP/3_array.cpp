@@ -15,7 +15,7 @@ char c_arr[]={'h','e','l','l','o',' ','w','o','r','l','d'};//11 size
 //in memory, c_arr="hello world" only not null terminated
 
 char a_arr[]="hello world" ;//size 12
-//in memory, a_array="hello world\n"
+//in memory, a_array="hello world\0"
 //a_array has null terminated
 
 string s_arr="hello world";//size 32
@@ -27,7 +27,7 @@ string s_arr="hello world";//size 32
 
 //BElow 3 method prints the string hello world just fine
 cout<<"c_array : "<<c_arr<<endl;
-//unlike in c, just array name print the whole array both in char and int
+//unlike in c, just array name print the whole array in char 
 cout<<"a_array : "<<a_arr<<endl;
 cout<<"s_arr: "<<s_arr<<endl;
 
@@ -43,49 +43,79 @@ cout<<"first charctr in s_array: "<<s_arr[0]<<endl;
 
 
 /***********Integer array**************/
-/*
+
 int i_arr[]={1,5,3,8,2};
-/* 
-cout<<"i_array: "; 
-for (int i=0;i<=4;i++)
-{
-cout<<i_arr[i]; 
-}
+
+cout<<"integer_array: "<<i_arr<<endl;//prints the address of the first element
+//this address is a label of the array allocation, which cannt be incremented using pointer arithmetic
+
+
+cout<<"integer_array using for loop: ";
+for (int i=0;i<=4;i++){
+cout<<i_arr[i];       }
 cout<<endl;
-*/
+
 
 /*****pointer arithmetic*****/
-/*
-cout<<"i_array: "; 
-for (int i=0;i<=4;i++)
-{
-cout<<*(i_arr+i); //array usng pointer arithmetic
-//i_arr++;       //dosnt go to the next array elemnt if it is initialised as array, will work if it is initialised using pointer as dynamic array
-}
-cout<<endl;
+
+//++arr_i and arr++ will not work as it tries to increment the fixed label / fixed address of array adress(arr_i). it is not modifiable	 
+// soln: instead of incrementing array address, assign a pointer to array address and increment it
+
+/***** causes error: modifying fixed address of array *****/
+// cout<<*(++arr); 
+// cout<<*(arr++); 
+
+
+int *ptr = i_arr;//asign an pointer, which can be varied usin ponit arithemtic
+
+/** This will work because ptr is a pointer to an arry address */
+cout<<"integer_array using poinetr arithmetic ptr++: "; 
+for (int i=0;i<=4;i++){
+cout<<*(ptr++)<<" "; }cout<<endl; //array usng pointer arithmetic ++arr
+
+
+
+//but arr_i+i works becuse it is same as arr[i], pointing to the next location
+cout<<"integer_array using poinetr arithmetic arr+i: "; 
+for (int i=0;i<=4;i++){
+cout<<*(i_arr+i)<<" "; }cout<<endl; //array usng pointer arithmetic arr+i
+
 
 
 
 /*****Dynamic memory allocation for array********/
-/*
-int i=10;
-//int *dy_arr = new int[10]; //this will allocate a 10 integer spaces in the heap memory under the name dy_arr,
-int *dy_arr = new int[i]; //this also will work fine
-for(i=0;i<10;i++){
-	cout<<"dy_arr["<<i<<"]: ";
-	cin>>dy_arr[i];
-}
+
+int size=10;
+
+int *dy_arr = new int[5]; 
+//this will allocate a 5 integer spaces in the heap memory
+int *dy_arr_new = new int[size]; 
+//this allocation using size as a variable also work fine
+int i=0;	
+
+for(i=0;i<5;i++){
+	dy_arr[i]=i*10;     }
+
+for(i=0;i<size;i++){
+	dy_arr_new[i]=i;     }
+
+//please note we cannot asign dy_arr_new={1,2,3,4,5,6,7,8,9,10} in both dynamic and normal array, after its initilization
+
 
 cout<<"dy_arr[]=";
-for(i=0;i<10;i++){
-cout<<dy_arr[i]<<" ";
-}
-cout<<endl;
+for(i=0;i<5;i++){
+	cout<<dy_arr[i]<<" ";   }  cout<<endl;
+
+cout<<"dy_arr_new[]=";
+for(i=0;i<size;i++){
+	cout<<dy_arr_new[i]<<" ";   }  cout<<endl;
+
 
 delete[]dy_arr; //freeying the dynamic memmory alocated
-dy_arr=NULL; // initilaizing it to a null value to avoid a wild pointer scenerio
+delete[]dy_arr_new;
 
-*/
+dy_arr=NULL; // initilaizing it to a null value to avoid a wild pointer scenerio
+dy_arr_new=NULL;
 
 }
 
