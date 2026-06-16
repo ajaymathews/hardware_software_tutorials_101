@@ -24,7 +24,7 @@ void SDRAM_Init(void)
      * Since there are 40+ pins, this forms a large block of register writes.
      * For brevity, this skeleton assumes pins are configured here.
      */
-     
+    
     // 3. Configure FMC SDRAM Control Registers
     // Set RPIPE, RBURST, SDCLK configuration for SDRAM Bank 2
     FMC_Bank5_6->SDCR[1] = 0x00002800; // Example config

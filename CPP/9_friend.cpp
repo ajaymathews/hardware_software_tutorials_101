@@ -6,38 +6,82 @@
  * How to Run:     ./"8_friend.exe"
  */
 
- 
-/* using the keyword friend inside the base class with a function or another class, we can make any function or class
-a friend of the base class,so by that we can access the members of base class to the friend function or class and
-then,  outside the class it can be defined or operated as any normal function or class, */
-/*
+
+/* using keyword frind we can make any class a frind of base class, so that it can look into the private values of base class, that is the value itself,,
+
+where as in inhereitance , the derrived class creates a copy of the base class variables, and the values are not shared.
+
+
+
+
 #include<iostream>
 using namespace std;
-class derr; //this is to notify the compiler that there is a class named derr,othervise when executing friend derr, shws error
-class base
+class time; 
+/*this is to notify the compiler that there is a class named time,othervise when executing friend time, shows error*/
+
+class date
 {
 	private:
-		int a=10,b=20;
+		int pri_day=01,pri_month=01,pri_year=1990;
+
 	public:
-		set_var(int,int);
-		int get_a();
-		int get_b();
-		//friend void sum();
-		friend derr; //here the derived class is friend of base and thus derived can access the varibles,
-					// by creating an object of base class in derr class 
+		int get_day();
+		int get_month();
+		int get_year();
+
+		
+		void set_date(int,int,int);
+
+		friend void display_date();
+		/*using friend for function in date class, allows you to acess the date members without representing it using :: when writing outside class, dont need to write as
+		' void date :: display_date(){ ..access date variables..  }
+		instead,write as
+		 void display_date(){. ..access date variables..  .}
+		*/
+
+
+		friend time; 
+		/*here the time class can look into the data class values, 
+		dont need to write as 
+		class time : public date {  }
+		instead,
+		class time {  } 
+		but acess the values using t.d.value not t.value*/
+
 };
-class derr
+
+class time
 {
 	private:
-		int c;
+		int pri_hour=10,pri_minute=10,pri_second=50;
 	public:
-		base obj;
-		void sum(){
-			c=obj.a+obj.b;
-			cout<<"sum:"<<c<<endl;
+		date d;
+		void set_time(int,int,int);
+
+		void display_date_time(){
+			cout<<endl;
+			cout<<"derrived fun : date:>  "<<d.pri_day<<"/"<<d.pri_month<<"/"<<d.pri_year<<endl;
+			cout<<"time:>  "<<pri_hour<<":"<<pri_minute<<":"<<pri_second<<endl;
 		}
 		
 };
+
+void date::set_date(int day,int month,int year){
+	pri_day=day;
+	pri_month=month;
+	pri_year=year;
+}
+
+void time::set_time(int hour,int minute,int second){
+	pri_hour=hour;
+	pri_minute=minute;
+	pri_second=second;
+}
+
+void display_date(){
+	cout<<"friend fun: date:>  "<<pri_day<<"/"<<pri_month<<"/"<<pri_year<<endl;
+}
+
 /* //this function s for when friend sum() is used
 void sum()
 {
@@ -48,75 +92,14 @@ void sum()
 
 // please note: class derr() can access the private variables of the base class, but base can't access the private variables of the class derr() unless class derr() is declared as friend of base() class.
 */
-/*
+
 int main()
 {
-	derr d;
-	d.sum();
+	time t;
+	t.set_time(5,30,55);
+	t.d.set_date(10,11,2026);//acessing base variables using friend function
+	display_date();
+
+	t.display_date_time();
 }
-*/
-/******Static members and functions*/
-/*
-#include<iostream>
-using namespace std;
-
-class base
-{
-	private:
-		int a=10,b=20;
-	public:
-		static int count;
-		void demo()
-		{
-			cout<<"inside demmo";
-		}
-		void sample()
-		{
-			count++;
-			cout<<"count:"<<count;
-		}
-		static fun()
-		{
-			count --; //only static variable can be used inside the static function.
-			//eg:creatiing a constructor to crwate students, as the student objet is creted admmsn no ++ in constructor
-		}
-};
-int base::count=0; //to use a static variable, it also should be writtten outside the class or main, like global.  
-int main()
-{
-	base b1,b2,b3;
-	//b1.sample();
-	//b2.sample();
-	b3.sample();//the varaible count is shared amoung all the object,thus value one objects use is same as the other objects. 
-}
-*/
-/* a class inside another class can be created*/ 
-#include<iostream>
-using namespace std;
-
-class linkedlist
-{
-	private:
-		int max_length;
-	public:
-		static int count;
-		class node
-		{
-			int data;
-			int *addr;
-		}
-		node *n1;//here the class linkedlist can create objects of node and use it as own.
-};
-void main()
-{
-	linkedlist::node n2;
-
-	//linkedlist class can acess the node member.
-	linkedlist l1;
-	l1.n1->data=10;
-	
-	
-}
-
-
 

@@ -8,6 +8,34 @@
 /*protected is another access specifier like public, such that the derived class can access theprotected data from parent, but the main cant use that data.
 but when creating the object, the data cnnnot be accessed by the object,protected data can be accessde inside class,and derived class.*/
 
+/*
+without virtual keyword ->
+class son: public parent 
+class daughter: public parent 
+class child: public daughter, public son 
+
+child
+ ├── son → parent (copy 1)
+ └── daughter → parent (copy 2)
+
+the parent class is inherited twice, 
+
+with virtual keyword ->
+class son:virtual public parent 
+class daughter:virtual public parent 
+class child: public daughter, public son 
+
+        parent (virtual)
+       /      \
+     son     daughter
+       \      /
+        child
+
+
+if we use virtual keyword, then the parent class is inherited only once, otherwise it is inherited twice
+
+
+*/
 #include<iostream>
 using namespace std;
 class parent
@@ -20,8 +48,10 @@ class parent
 		int get_p_age();
 		int get_p_yr();
 };
-class son:virtual public parent //when the 2 classes are combined to give another, the combining calsses should need a keyword 'virtual'
-{                               //here son and daughter combine to give the child class
+
+class son:virtual public parent 
+//when the 2 classes are combined to give another, the combining classes should need a keyword 'virtual' here son and daughter combine to give the child class
+{
 	private:
 		int s_age,s_yr;
 	public:
@@ -132,7 +162,7 @@ cout<<"parent(c)"<<c_ptr->get_p_age()<<endl;
 cout<<"parent(p)"<<p_ptr->get_p_age()<<endl;
 
 
-p_ptr=&c;//this command is necessary to make the class p and c, to b accessed the same data from the class
+p_ptr=&c;//ths type casts the pointerto point to child class //i dont know why i tried to test this functionality this is common knowledge 
 
 p_ptr->set_p_age(110);
 c_ptr->set_p_age(105);

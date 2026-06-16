@@ -95,7 +95,7 @@ int main()
 	/********* passsing value to the function using refrence *************/
 
 	fun_ref_class(r2);
-	cout<<"classs value modified in ref function:"<<r2.area()<<endl;
+	cout<<"class value modified in ref function:"<<r2.area()<<endl;
 
 	
 

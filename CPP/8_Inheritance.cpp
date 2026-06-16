@@ -47,6 +47,9 @@ class date
 
 class time : public date
 {
+	//the public keyword before date means, the funtions and members of date is available as public to son. so son can use this to modify the values of base class from main. eg: t.set_day(10);
+	//if i change private: into protected: , then derived class time() can access the private variables of the base class date() directly, but main can't
+	
 	//time class now contains variables from date classs such as pri_day,pri_mon,pri_yr, but in a differnt memory location ,only the type are inherited not value
 
 	private:
